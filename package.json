@@ -1,0 +1,59 @@
+{
+  "name": "toga",
+  "version": "0.0.1",
+  "description": "The stupid doc-block parser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shannonmoeller/toga.git"
+  },
+  "keywords": [
+    "docblock",
+    "documentation",
+    "dox",
+    "jsdoc",
+    "toga"
+  ],
+  "author": "Shannon Moeller <me@shannonmoeller.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shannonmoeller/toga/issues"
+  },
+  "homepage": "https://github.com/shannonmoeller/toga",
+  "dependencies": {
+    "copier": "0.0.3",
+    "marked": "~0.3.0"
+  },
+  "devDependencies": {
+    "browserify": "~3.14.0",
+    "coverify": "~0.4.1",
+    "grunt": "~0.4.2",
+    "grunt-browserify": "~1.3.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "load-grunt-tasks": "~0.2.1",
+    "nopt-grunt": "~0.1.1",
+    "time-grunt": "~0.2.5"
+  },
+  "testling": {
+    "harness": "mocha",
+    "scripts": "test/index.js",
+    "browsers": [
+      "chrome/30..latest",
+      "chrome/canary",
+      "ff/24..latest",
+      "ff/nightly",
+      "ie/8..latest",
+      "opera/15..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "android-browser/4.2..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest"
+    ]
+  }
+}
