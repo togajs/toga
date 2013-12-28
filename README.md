@@ -27,11 +27,11 @@ With [Component](http://component.io):
 
 Creates a reusable parser based on the given grammar. Defaults to parsing C-style comment blocks.
 
-#### `.parse(block) : String`
+#### `.parse(block) : Array.<Object>`
 
 Generates a single array of tokens with tags per given block of text. Tags are parsed greedily. If it looks like a tag, it's a tag. How you handle them is completely up to you.
 
-### `toga(block, [grammar]) : String`
+### `toga(block, [grammar]) : Array.<Object>`
 
 Functional shorthand for one-off block parsing.
 
