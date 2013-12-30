@@ -24,21 +24,23 @@ module.exports = function(grunt) {
         browserify: {
             build: {
                 options: {
-                    standalone: '<%= pkg.name %>'
+                    standalone: '<%= pkg.name %>',
+                    transform: ['brfs']
                 },
                 src: 'lib/**/*.js',
                 dest: 'index.js'
             },
             cover: {
                 options: {
-                    transform: ['coverify']
+                    transform: ['brfs', 'coverify']
                 },
                 src: 'test/**/*-spec.js',
                 dest: 'test/cover.js'
             },
             test: {
                 options: {
-                    debug: true
+                    debug: true,
+                    transform: ['brfs']
                 },
                 src: 'test/**/*-spec.js',
                 dest: 'test/index.js'

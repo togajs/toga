@@ -1,0 +1,257 @@
+[4mRunning "browserify:test" (browserify) task[24m
+[32m>> [39mBundled test/index.js
+
+[4mRunning "simplemocha:test" (simplemocha) task[24m
+
+[0m[0m
+[0m  Toga[0m
+
+  [32m  ✓[0m[90m should not parse non-blocks [0m
+
+  [32m  ✓[0m[90m should parse empty blocks [0m
+
+  [32m  ✓[0m[90m should parse descriptions [0m
+
+  [32m  ✓[0m[90m should parse tags [0m
+
+  [32m  ✓[0m[90m should parse args [0m
+
+  [32m  ✓[0m[90m should parse types [0m
+
+  [32m  ✓[0m[90m should parse names [0m
+[
+    {
+        "type": "code",
+        "raw": ""
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "/**\n * # Title\n *\n * Long description that spans multiple\n * lines and even has other markdown\n * type things.\n *\n * Like more paragraphs.\n *\n * * Like\n * * Lists\n *\n *     var code = 'samples';\n *\n * @arg {Type} name Description.\n * @arg {Type} name Description that is really long\n *   and wraps to other lines.\n * @arg {Type} name Description that is really long\n *   and wraps to other lines.\n *\n *   And has line breaks, etc.\n *\n * @example\n *\n *     var foo = 'bar';\n *\n * @tag\n */"
+    },
+    {
+        "type": "code",
+        "raw": "\n\n"
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "/**\n# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n@arg {Type} name Description.\n@arg {Type} name Description that is really long\n  and wraps to other lines.\n@arg {Type} name Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n@example\n\n    var foo = 'bar';\n\n@tag\n */"
+    },
+    {
+        "type": "code",
+        "raw": "\n\n"
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "/**\n    # Title\n\n    Long description that spans multiple\n    lines and even has other markdown\n    type things.\n\n    Like more paragraphs.\n\n    * Like\n    * Lists\n\n        var code = 'samples';\n\n    @arg {Type} name Description.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n\n      And has line breaks, etc.\n\n    @example\n\n        var foo = 'bar';\n\n    @tag\n */"
+    },
+    {
+        "type": "code",
+        "raw": "\n\n"
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "    /**\n     * # Title\n     *\n     * Long description that spans multiple\n     * lines and even has other markdown\n     * type things.\n     *\n     * Like more paragraphs.\n     *\n     * * Like\n     * * Lists\n     *\n     *     var code = 'samples';\n     *\n     * @arg {Type} name Description.\n     * @arg {Type} name Description that is really long\n     *   and wraps to other lines.\n     * @arg {Type} name Description that is really long\n     *   and wraps to other lines.\n     *\n     *   And has line breaks, etc.\n     *\n     * @example\n     *\n     *     var foo = 'bar';\n     *\n     * @tag\n     */"
+    },
+    {
+        "type": "code",
+        "raw": "\n\n"
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "    /**\n    # Title\n\n    Long description that spans multiple\n    lines and even has other markdown\n    type things.\n\n    Like more paragraphs.\n\n    * Like\n    * Lists\n\n        var code = 'samples';\n\n    @arg {Type} name Description.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n\n      And has line breaks, etc.\n\n    @example\n\n        var foo = 'bar';\n\n    @tag\n     */"
+    },
+    {
+        "type": "code",
+        "raw": "\n\n"
+    },
+    {
+        "type": "docs",
+        "description": "# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = 'samples';\n\n",
+        "tags": [
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n"
+            },
+            {
+                "tag": "arg",
+                "type": "{Type}",
+                "name": "name",
+                "description": "Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n"
+            },
+            {
+                "tag": "example",
+                "description": "\n\n    var foo = 'bar';\n\n"
+            },
+            {
+                "tag": "tag"
+            }
+        ],
+        "raw": "    /**\n        # Title\n\n        Long description that spans multiple\n        lines and even has other markdown\n        type things.\n\n        Like more paragraphs.\n\n        * Like\n        * Lists\n\n            var code = 'samples';\n\n        @arg {Type} name Description.\n        @arg {Type} name Description that is really long\n          and wraps to other lines.\n        @arg {Type} name Description that is really long\n          and wraps to other lines.\n\n          And has line breaks, etc.\n\n        @example\n\n            var foo = 'bar';\n\n        @tag\n    */"
+    },
+    {
+        "type": "code",
+        "raw": "\n"
+    }
+]
+
+  [32m  ✓[0m[90m should handle indention [0m
+
+
+[92m [0m[32m 8 passing[0m[90m (16ms)[0m
+
+
+[32mDone, without errors.[39m
+
+
+Execution Time (2013-12-29 22:47:40 UTC)
+browserify:test   338ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 88%
+simplemocha:test   43ms  ▇▇▇▇▇ 11%
+Total 384ms
