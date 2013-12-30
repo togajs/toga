@@ -1,6 +1,6 @@
 {
   "name": "toga",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The stupid doc-block parser.",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "documentation",
     "dox",
     "jsdoc",
-    "toga"
+    "toga",
+    "yuidoc"
   ],
   "author": "Shannon Moeller <me@shannonmoeller.com>",
   "license": "MIT",
@@ -37,7 +38,6 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-simple-mocha": "~0.4.0",
     "load-grunt-tasks": "~0.2.1",
-    "nopt-grunt": "~0.1.1",
     "time-grunt": "~0.2.5"
   },
   "testling": {

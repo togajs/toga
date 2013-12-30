@@ -4,25 +4,32 @@
 var copier = require('copier');
 
 /**
+ * Matches start of each line. Useful for getting a count of all lines.
+ *
  * @type {RegExp}
  */
 var linePattern = /^/gm;
 
 /**
+ * Matches empty lines. Useful for getting a count of empty lines.
+ *
  * @type {RegExp}
  */
 var emptyLinePattern = /^$/gm;
 
 /**
+ * Matches surrounding empty lines to be trimmed.
+ *
  * @type {RegExp}
  */
 var edgeEmptyLinesPattern = /^[\t ]*\n|\n[\t ]*$/g;
 
 /**
  * Default C-style grammar.
- * @type {Object}
+ *
+ * @type {Object.<String,RegExp>}
  */
-var defaults = {
+var defaultGrammar = {
     // Matches block delimiters
     blockSplit: /(^[\t ]*\/\*\*(?!\/)[\s\S]*?\s*\*\/)/m,
 
@@ -36,66 +43,73 @@ var defaults = {
     tagSplit: /^[\t ]*@/m,
 
     // Matches tag content `tag {Type} [name] - Description.`
-    tagParse: /^(\w+)[\t ]*(\{[^\}]+\})?[\t ]*(\[[^\]]*\]\*?|\S*)?[\t -]*([\s\S]+)?$/m,
+    tagParse: /^(\w+)[\t \-]*(\{[^\}]+\})?[\t \-]*(\[[^\]]*\]\*?|\S*)?[\t \-]*([\s\S]+)?$/m,
 
     // Matches tags that should include a name property
     named: /^(arg(ument)?|augments|class|extends|method|param|prop(erty)?)$/
 };
 
 /**
- * # Toga
+ * Default options.
  *
- * Yet another doc-block parser. Based on a customizable regular-expression
- * grammar. Defaults to C-style comment blocks, so it supports JavaScript, C,
- * PHP, Java, and even CSS right out of the box.
- *
- * Generates a single array of tokens with tags per given blob of text. Tags are
- * parsed greedily. If it looks like a tag, it's a tag. How you handle them is
- * completely up to you.
- *
- * @class Toga
- * @param {String} [block]
- * @param {Object} [options]
- * @constructor
+ * @type {Object}
  */
-function Toga(block, options) {
-    if (!(this instanceof Toga)) {
-        return new Toga(options).parse(block);
-    }
-
-    if (options === undefined && typeof block === 'object') {
-        options = block;
-        block = null;
-    }
-
-    this.parse = this.parse.bind(this);
-    this.parseBlock = this.parseBlock.bind(this);
-    this.parseCode = this.parseCode.bind(this);
-    this.parseDocs = this.parseDocs.bind(this);
-    this.parseTag = this.parseTag.bind(this);
-
-    this.setOptions(options);
-}
-
-/**
- * @method setOptions
- * @param {Object} options
- * @chainable
- */
-Toga.prototype.setOptions = function(options) {
-    this.options = copier({}, options, defaults);
-
-    return this;
+var defaultOptions = {
+    raw: false
 };
 
 /**
- * @method parse
+ * # Toga
+ *
+ * The stupid doc-block parser. Generates an abstract syntax tree based on a
+ * customizable regular-expression grammar. Defaults to C-style comment blocks,
+ * so it supports JavaScript, PHP, C++, and even CSS right out of the box.
+ *
+ * Tags are parsed greedily. If it looks like a tag, it's a tag. What you do
+ * with them is completely up to you. Render something human-readable, perhaps?
+ *
+ * @class Toga
  * @param {String} [block]
+ * @param {Object} [grammar]
+ * @constructor
+ */
+function Toga(block, grammar) {
+    // Make `block` optional
+    if (arguments.length === 1 && block && typeof block === 'object') {
+        grammar = block;
+        block = undefined;
+    }
+
+    // Support functional execution: `toga(block, grammar)`
+    if (!(this instanceof Toga)) {
+        return new Toga(grammar).parse(block);
+    }
+
+    // Set defaults
+    this.grammar = copier({}, defaultGrammar, grammar);
+    this.options = copier({}, defaultOptions);
+
+    // Enforce context
+    this.parse = this.parse.bind(this);
+    this.parseBlock = this.parseBlock.bind(this);
+    this.parseCode = this.parseCode.bind(this);
+    this.parseDocBlock = this.parseDocBlock.bind(this);
+    this.parseTag = this.parseTag.bind(this);
+}
+
+/**
+ * @method parse
+ * @param {String} block
+ * @param {String} [options]
  * @return {String}
  */
-Toga.prototype.parse = function(block) {
-    return block
-        .split(this.options.blockSplit)
+Toga.prototype.parse = function(block, options) {
+    if (arguments.length === 2) {
+        this.options = copier({}, defaultOptions, options);
+    }
+
+    return String(block)
+        .split(this.grammar.blockSplit)
         .map(this.parseBlock);
 };
 
@@ -105,8 +119,8 @@ Toga.prototype.parse = function(block) {
  * @return {Object}
  */
 Toga.prototype.parseBlock = function(block) {
-    if (this.options.blockParse.test(block)) {
-        return this.parseDocs(block);
+    if (this.grammar.blockParse.test(block)) {
+        return this.parseDocBlock(block);
     }
 
     return this.parseCode(block);
@@ -120,46 +134,55 @@ Toga.prototype.parseBlock = function(block) {
 Toga.prototype.parseCode = function(block) {
     return {
         type: 'Code',
-        raw: block
+        body: String(block)
     };
 };
 
 /**
- * @method parseDocs
+ * @method parseDocBlock
  * @param {String} [block]
  * @return {Object}
  */
-Toga.prototype.parseDocs = function(block) {
-    var clean = this.normalizeDocs(block);
-    var tags = clean.split(this.options.tagSplit);
-    var description = tags.shift();
+Toga.prototype.parseDocBlock = function(block) {
+    block = String(block);
 
-    return {
-        type: 'Documentation',
-        description: description,
-        tags: tags.map(this.parseTag),
-        raw: block
+    var tags = this
+        .normalizeDocBlock(block)
+        .split(this.grammar.tagSplit);
+
+    var token = {
+        type: 'DocBlock',
+        description: tags.shift(),
+        tags: tags.map(this.parseTag)
     };
+
+    if (this.options.raw) {
+        token.raw = block;
+    }
+
+    return token;
 };
 
 /**
- * @method normalizeDocs
+ * @method normalizeDocBlock
  * @param {String} block
  * @return {String}
  */
-Toga.prototype.normalizeDocs = function(block) {
-    var options = this.options;
-    var blockParse = options.blockParse;
-    var indent = options.indent;
+Toga.prototype.normalizeDocBlock = function(block) {
+    var grammar = this.grammar;
 
     // Trim comment wrappers
-    block = block.replace(blockParse, '$1');
-    block = block.replace(edgeEmptyLinesPattern, '');
+    var blockParse = grammar.blockParse;
+
+    block = String(block)
+        .replace(blockParse, '$1')
+        .replace(edgeEmptyLinesPattern, '');
 
     // Unindent content
     var emptyLines;
     var indentedLines;
-    var lines = (block.match(linePattern) || []).length;
+    var indent = grammar.indent;
+    var lines = block.match(linePattern).length;
 
     while (lines > 0) {
         emptyLines = (block.match(emptyLinePattern) || []).length;
@@ -183,35 +206,44 @@ Toga.prototype.normalizeDocs = function(block) {
  * @return {Object}
  */
 Toga.prototype.parseTag = function(block) {
-    var parts = block.match(this.options.tagParse);
+    var grammar = this.grammar;
+    var parts = String(block).match(grammar.tagParse);
     var id = parts[1];
     var type = parts[2];
-    var name = parts[3];
+    var name = parts[3] || '';
     var description = parts[4] || '';
-    var tag = {};
+    var token = {};
 
-    if (name && !this.options.named.test(id)) {
-        description = name + ' ' + description;
+    // Handle named tags
+    if (!grammar.named.test(id)) {
+        if (name && description) {
+            description = name + ' ' + description;
+        } else if (name) {
+            description = name;
+        }
+
         name = undefined;
     }
 
+    // Keep tokens light
+
     if (id) {
-        tag.tag = id;
+        token.tag = id;
     }
 
     if (type) {
-        tag.type = type;
+        token.type = type;
     }
 
     if (name) {
-        tag.name = name;
+        token.name = name;
     }
 
     if (description) {
-        tag.description = description;
+        token.description = description;
     }
 
-    return tag;
+    return token;
 };
 
 module.exports = Toga;

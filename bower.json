@@ -1,6 +1,6 @@
 {
   "name": "toga",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The stupid doc-block parser.",
   "main": "index.js",
   "ignore": ["./!(index.js)"]
