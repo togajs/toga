@@ -45,7 +45,7 @@ Creates a reusable parser based on the given grammar. Defaults to parsing C-styl
 
 - `block` `{String}` Block of code containing comments to parse.
 - `options` `{Object}` Parsing options.
-  - `options.raw` `{Boolean}` Whether to include the raw source with the DocBlock tokens. _Default: false_
+  - `options.raw` `{Boolean}` Whether to include the raw source with tokens. _Default: false_
 
 Generates a sensible syntax tree format of doc-blocks and surrounding code.
 
