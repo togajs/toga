@@ -25,15 +25,15 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(empty), null, 4));
         // diff(toga(empty), [
         expect(toga(empty)).to.eql([
-            { 'type': 'code', 'raw': '/**/\n' },
-            { 'type': 'docs', 'description': '', 'tags': [], 'raw': '/***/' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [], 'raw': '/** */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [], 'raw': '/**\n *\n */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [], 'raw': '/**\n\n*/' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '/**/\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [], 'raw': '/***/' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [], 'raw': '/** */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [], 'raw': '/**\n *\n */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [], 'raw': '/**\n\n*/' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -43,13 +43,13 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(desc), null, 4));
         // diff(toga(desc), [
         expect(toga(desc)).to.eql([
-            { 'type': 'code', 'raw': '' },
-            { 'type': 'docs', 'description': 'description', 'tags': [], 'raw': '/** description */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': 'description', 'tags': [], 'raw': '/**\n * description\n */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': 'description', 'tags': [], 'raw': '/**\ndescription\n*/' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '' },
+            { 'type': 'Documentation', 'description': 'description', 'tags': [], 'raw': '/** description */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': 'description', 'tags': [], 'raw': '/**\n * description\n */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': 'description', 'tags': [], 'raw': '/**\ndescription\n*/' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -59,13 +59,13 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(tag), null, 4));
         // diff(toga(tag), [
         expect(toga(tag)).to.eql([
-            { 'type': 'code', 'raw': '' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/** @tag */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/**\n * @tag\n */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/**\n@tag\n*/' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/** @tag */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/**\n * @tag\n */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'tag' } ], 'raw': '/**\n@tag\n*/' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -75,31 +75,31 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(arg), null, 4));
         // diff(toga(arg), [
         expect(toga(arg)).to.eql([
-            { 'type': 'code', 'raw': '' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg {Type} [name] - Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg {Type} [name] Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg {Type} name - Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg {Type} name Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]' } ], 'raw': '/** @arg {Type} [name] */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name' } ], 'raw': '/** @arg {Type} name */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg [name] - Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg [name] Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg name - Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg name Description. */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]' } ], 'raw': '/** @arg [name] */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name' } ], 'raw': '/** @arg name */' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg {Type} [name] - Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg {Type} [name] Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg {Type} name - Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg {Type} name Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': '[name]' } ], 'raw': '/** @arg {Type} [name] */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}', 'name': 'name' } ], 'raw': '/** @arg {Type} name */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg [name] - Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]', 'description': 'Description.' } ], 'raw': '/** @arg [name] Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg name - Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name', 'description': 'Description.' } ], 'raw': '/** @arg name Description. */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]' } ], 'raw': '/** @arg [name] */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name' } ], 'raw': '/** @arg name */' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -109,15 +109,15 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(type), null, 4));
         // diff(toga(type), [
         expect(toga(type)).to.eql([
-            { 'type': 'code', 'raw': '' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}' } ], 'raw': '/** @arg {Type} */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{String|Object}' } ], 'raw': '/** @arg {String|Object} */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Array.<Object.<String,Number>>}' } ], 'raw': '/** @arg {Array.<Object.<String,Number>>} */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Function(String, ...[Number]): Number}', 'name': 'callback' } ], 'raw': '/** @arg {Function(String, ...[Number]): Number} callback */' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Type}' } ], 'raw': '/** @arg {Type} */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{String|Object}' } ], 'raw': '/** @arg {String|Object} */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Array.<Object.<String,Number>>}' } ], 'raw': '/** @arg {Array.<Object.<String,Number>>} */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'type': '{Function(String, ...[Number]): Number}', 'name': 'callback' } ], 'raw': '/** @arg {Function(String, ...[Number]): Number} callback */' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -127,15 +127,15 @@ describe('Toga', function () {
         // console.log(JSON.stringify(toga(name), null, 4));
         // diff(toga(name), [
         expect(toga(name)).to.eql([
-            { 'type': 'code', 'raw': '' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name' } ], 'raw': '/** @arg name */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]' } ], 'raw': '/** @arg [name] */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name={}]' } ], 'raw': '/** @arg [name={}] */' },
-            { 'type': 'code', 'raw': '\n' },
-            { 'type': 'docs', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name="hello world"]' } ], 'raw': '/** @arg [name="hello world"] */' },
-            { 'type': 'code', 'raw': '\n' }
+            { 'type': 'Code', 'raw': '' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': 'name' } ], 'raw': '/** @arg name */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name]' } ], 'raw': '/** @arg [name] */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name={}]' } ], 'raw': '/** @arg [name={}] */' },
+            { 'type': 'Code', 'raw': '\n' },
+            { 'type': 'Documentation', 'description': '', 'tags': [ { 'tag': 'arg', 'name': '[name="hello world"]' } ], 'raw': '/** @arg [name="hello world"] */' },
+            { 'type': 'Code', 'raw': '\n' }
         ]);
     });
 
@@ -146,11 +146,11 @@ describe('Toga', function () {
         // diff(toga(indent), [
         expect(toga(indent)).to.eql([
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': ''
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -182,11 +182,11 @@ describe('Toga', function () {
                 'raw': '/**\n * # Title\n *\n * Long description that spans multiple\n * lines and even has other markdown\n * type things.\n *\n * Like more paragraphs.\n *\n * * Like\n * * Lists\n *\n *     var code = \'samples\';\n *\n * @arg {Type} name Description.\n * @arg {Type} name Description that is really long\n *   and wraps to other lines.\n * @arg {Type} name Description that is really long\n *   and wraps to other lines.\n *\n *   And has line breaks, etc.\n *\n * @example\n *\n *     var foo = \'bar\';\n *\n * @tag\n */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n\n'
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -218,11 +218,11 @@ describe('Toga', function () {
                 'raw': '/**\n# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n@arg {Type} name Description.\n@arg {Type} name Description that is really long\n  and wraps to other lines.\n@arg {Type} name Description that is really long\n  and wraps to other lines.\n\n  And has line breaks, etc.\n\n@example\n\n    var foo = \'bar\';\n\n@tag\n */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n\n'
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -254,11 +254,11 @@ describe('Toga', function () {
                 'raw': '/**\n    # Title\n\n    Long description that spans multiple\n    lines and even has other markdown\n    type things.\n\n    Like more paragraphs.\n\n    * Like\n    * Lists\n\n        var code = \'samples\';\n\n    @arg {Type} name Description.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n\n      And has line breaks, etc.\n\n    @example\n\n        var foo = \'bar\';\n\n    @tag\n */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n\n'
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -290,11 +290,11 @@ describe('Toga', function () {
                 'raw': '    /**\n     * # Title\n     *\n     * Long description that spans multiple\n     * lines and even has other markdown\n     * type things.\n     *\n     * Like more paragraphs.\n     *\n     * * Like\n     * * Lists\n     *\n     *     var code = \'samples\';\n     *\n     * @arg {Type} name Description.\n     * @arg {Type} name Description that is really long\n     *   and wraps to other lines.\n     * @arg {Type} name Description that is really long\n     *   and wraps to other lines.\n     *\n     *   And has line breaks, etc.\n     *\n     * @example\n     *\n     *     var foo = \'bar\';\n     *\n     * @tag\n     */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n\n'
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -326,11 +326,11 @@ describe('Toga', function () {
                 'raw': '    /**\n    # Title\n\n    Long description that spans multiple\n    lines and even has other markdown\n    type things.\n\n    Like more paragraphs.\n\n    * Like\n    * Lists\n\n        var code = \'samples\';\n\n    @arg {Type} name Description.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n    @arg {Type} name Description that is really long\n      and wraps to other lines.\n\n      And has line breaks, etc.\n\n    @example\n\n        var foo = \'bar\';\n\n    @tag\n     */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n\n'
             },
             {
-                'type': 'docs',
+                'type': 'Documentation',
                 'description': '# Title\n\nLong description that spans multiple\nlines and even has other markdown\ntype things.\n\nLike more paragraphs.\n\n* Like\n* Lists\n\n    var code = \'samples\';\n\n',
                 'tags': [
                     {
@@ -362,7 +362,7 @@ describe('Toga', function () {
                 'raw': '    /**\n        # Title\n\n        Long description that spans multiple\n        lines and even has other markdown\n        type things.\n\n        Like more paragraphs.\n\n        * Like\n        * Lists\n\n            var code = \'samples\';\n\n        @arg {Type} name Description.\n        @arg {Type} name Description that is really long\n          and wraps to other lines.\n        @arg {Type} name Description that is really long\n          and wraps to other lines.\n\n          And has line breaks, etc.\n\n        @example\n\n            var foo = \'bar\';\n\n        @tag\n    */'
             },
             {
-                'type': 'code',
+                'type': 'Code',
                 'raw': '\n'
             }
         ]);

@@ -29,7 +29,7 @@ Creates a reusable parser based on the given grammar. Defaults to parsing C-styl
 
 #### `.parse(block) : Array.<Object>`
 
-Generates a single array of tokens with tags per given block of text. Tags are parsed greedily. If it looks like a tag, it's a tag. How you handle them is completely up to you.
+Generates a sensible syntax tree format of doc-blocks and surrounding code. Tags are parsed greedily. If it looks like a tag, it's a tag. How you handle them is completely up to you.
 
 ### `toga(block, [grammar]) : Array.<Object>`
 

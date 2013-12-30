@@ -119,7 +119,7 @@ Toga.prototype.parseBlock = function(block) {
  */
 Toga.prototype.parseCode = function(block) {
     return {
-        type: 'code',
+        type: 'Code',
         raw: block
     };
 };
@@ -135,7 +135,7 @@ Toga.prototype.parseDocs = function(block) {
     var description = tags.shift();
 
     return {
-        type: 'docs',
+        type: 'Documentation',
         description: description,
         tags: tags.map(this.parseTag),
         raw: block
