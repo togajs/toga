@@ -12,37 +12,40 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc',
                 force: true
             },
-            all: {
-                src: [
-                    'Gruntfile.js',
-                    'lib/**/*.js',
-                    'test/**/*-spec.js'
-                ]
+            gruntfile: {
+                src: 'Gruntfile.js'
+            },
+            build: {
+                src: 'lib/**/*.js'
+            },
+            test: {
+                src: 'test/**/*-spec.js'
             }
         },
 
         browserify: {
+            options: {
+                transform: ['brfs']
+            },
             build: {
                 options: {
-                    standalone: '<%= pkg.name %>',
-                    transform: ['brfs']
+                    standalone: '<%= pkg.name %>'
                 },
-                src: 'lib/**/*.js',
+                src: '<%= jshint.build.src %>',
                 dest: 'index.js'
             },
             cover: {
                 options: {
                     transform: ['brfs', 'coverify']
                 },
-                src: 'test/**/*-spec.js',
+                src: '<%= jshint.test.src %>',
                 dest: 'test/cover.js'
             },
             test: {
                 options: {
-                    debug: true,
-                    transform: ['brfs']
+                    debug: true
                 },
-                src: 'test/**/*-spec.js',
+                src: '<%= jshint.test.src %>',
                 dest: 'test/index.js'
             }
         },
@@ -66,9 +69,8 @@ module.exports = function(grunt) {
             },
             all: {
                 files: [
-                    'Gruntfile.js',
-                    'lib/**/*.js',
-                    'test/**/*-spec.js'
+                    '<%= jshint.build.src %>',
+                    '<%= jshint.test.src %>'
                 ],
                 tasks: ['default']
             }
