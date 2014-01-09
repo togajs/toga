@@ -1,0 +1,51 @@
+{
+  "name": "toga-css",
+  "version": "0.0.0",
+  "description": "Clothe your CSS.",
+  "main": "lib/cli.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/togajs/toga-css.git"
+  },
+  "keywords": [
+    "toga",
+    "documentation",
+    "docblock",
+    "docs",
+    "info",
+    "jsdoc",
+    "man",
+    "pod",
+    "yuidoc"
+  ],
+  "author": "Shannon Moeller <me@shannonmoeller.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/togajs/toga-css/issues"
+  },
+  "homepage": "https://github.com/togajs/toga-css",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.3.0"
+  },
+  "testling": {
+    "harness": "mocha",
+    "scripts": "test/unit.js",
+    "browsers": [
+      "chrome/28..latest",
+      "chrome/canary",
+      "firefox/23..latest",
+      "firefox/nightly",
+      "ie/8..latest",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "android-browser/4.2..latest",
+      "ipad/6..latest",
+      "iphone/6..latest"
+    ]
+  }
+}
