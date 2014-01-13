@@ -31,7 +31,8 @@
   "dependencies": {
     "commander": "~2.1.0",
     "gulp": "~3.3.0",
-    "vinyl": "~0.2.1"
+    "vinyl": "~0.2.1",
+    "mout": "~0.8.0"
   },
   "devDependencies": {
     "gulp": "~3.3.0",
