@@ -1,6 +1,6 @@
 {
   "name": "toga",
-  "version": "0.2.1",
+  "version": "0.2.0-alpha.1",
   "description": "Clothe your code.",
   "main": "lib/toga.js",
   "bin": "bin/toga",

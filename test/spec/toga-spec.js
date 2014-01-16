@@ -6,11 +6,9 @@ var toga = require('../../lib/toga');
 var Toga = toga.Toga;
 
 describe('Toga', function() {
-    describe('constructor', function() {
-        it('should create an instance', function() {
-            assert.ok(toga instanceof Toga);
-            assert.ok(new Toga() instanceof Toga);
-        });
+    it('should create an instance', function() {
+        assert.ok(toga instanceof Toga);
+        assert.ok(new Toga() instanceof Toga);
     });
 
     describe('prototype.open', function() {
@@ -54,6 +52,7 @@ describe('Toga', function() {
             });
 
             parsed = inst.parse(fixture);
+
             assert.equal(parsed, 'docs\n');
             assert.equal(count, 2);
         });
