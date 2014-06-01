@@ -1,0 +1,46 @@
+{
+  "name": "toga",
+  "version": "0.1.0-alpha1",
+  "description": "A language-agnostic project documentation generator.",
+  "keywords": [
+    "toga",
+    "documentation",
+    "docblock",
+    "docs",
+    "doc",
+	"generator",
+	"styleguide"
+  ],
+  "homepage": "https://togajs.github.io",
+  "bugs": "https://github.com/togajs/toga/issues",
+  "license": "MIT",
+  "author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/togajs/toga.git"
+  },
+  "scripts": {
+    "coveralls": "gulp cover && cat ./coverage/lcov.info | coveralls",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "mout": "^0.9.0",
+    "vinyl-fs": "^0.1.2"
+  },
+  "devDependencies": {
+    "coveralls": "^2.6.1",
+    "event-stream": "^3.1.1",
+    "expect.js": "^0.3.1",
+    "gulp": "^3.6.0",
+    "gulp-istanbul": "^0.1.1",
+    "gulp-jscs": "^0.4.1",
+    "gulp-jshint": "^1.5.1",
+    "gulp-mocha": "^0.4.1",
+    "gulp-watch": "^0.5.3",
+    "jshint-stylish": "^0.1.5"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  }
+}
