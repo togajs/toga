@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	paths = {
 		gulp: 'gulpfile.js',
 		src: 'index.js',
-		test: 'test/**/*{E2e,Spec}.js'
+		test: 'test/**/*{.e2e,.spec}.js'
 	};
 
 gulp.task('default', ['lint', 'test']);
@@ -36,11 +36,4 @@ gulp.task('test', ['cover'], function () {
 		.src(paths.test)
 		.pipe(mocha({ reporter: 'spec' }))
 		.pipe(istanbul.writeReports());
-});
-
-gulp.task('watch', function () {
-	var lr = require('gulp-livereload'),
-		watch = require('gulp-watch');
-
-	watch({ glob: [paths.src, paths.test] }).pipe(lr());
 });

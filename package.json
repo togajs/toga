@@ -8,8 +8,8 @@
     "docblock",
     "docs",
     "doc",
-	"generator",
-	"styleguide"
+    "generator",
+    "styleguide"
   ],
   "homepage": "https://togajs.github.io",
   "bugs": "https://github.com/togajs/toga/issues",
@@ -25,20 +25,19 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "mout": "^0.9.0",
-    "vinyl-fs": "^0.1.2"
+    "vinyl-fs": "^0.3.7"
   },
   "devDependencies": {
-    "coveralls": "^2.6.1",
-    "event-stream": "^3.1.1",
+    "coveralls": "^2.11.1",
+    "event-stream": "^3.1.7",
     "expect.js": "^0.3.1",
-    "gulp": "^3.6.0",
-    "gulp-istanbul": "^0.1.1",
-    "gulp-jscs": "^0.4.1",
-    "gulp-jshint": "^1.5.1",
-    "gulp-mocha": "^0.4.1",
-    "gulp-watch": "^0.5.3",
-    "jshint-stylish": "^0.1.5"
+    "gulp": "^3.8.8",
+    "gulp-istanbul": "^0.2.2",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.0.0",
+    "gulp-watch": "^1.0.2",
+    "jshint-stylish": "^0.4.0"
   },
   "engines": {
     "node": ">= 0.10"
