@@ -6,8 +6,6 @@
 
 ## Install
 
-With [Node.js](http://nodejs.org).
-
 Module:
 
     $ npm install toga
