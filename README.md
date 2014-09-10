@@ -1,18 +1,18 @@
-# toga
+# `toga`
+
+> The streaming documentation generator.
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url]
-
-Clothe your code in something presentable.
 
 ## Install
 
 With [Node.js](http://nodejs.org).
 
-### Module
+Module:
 
     $ npm install toga
 
-### CLI
+CLI:
 
     $ npm install --global toga
 
