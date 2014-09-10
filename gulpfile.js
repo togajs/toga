@@ -1,15 +1,39 @@
 'use strict';
 
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
+var gulp = require('gulp'),
+	paths = {
+		gulp: 'gulpfile.js',
+		src: 'index.js',
+		test: 'test/**/*{.e2e,.spec}.js'
+	};
 
-gulp.task('lint', function() {
-    gulp
-        .src('*.js')
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('jshint-stylish'));
+gulp.task('default', ['lint', 'test']);
+
+gulp.task('lint', function () {
+	var jscs = require('gulp-jscs'),
+		jshint = require('gulp-jshint');
+
+	return gulp
+		.src([paths.gulp, paths.src, paths.test])
+		.pipe(jscs())
+		.pipe(jshint())
+		.pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', function() {
-    gulp.run('lint');
+gulp.task('cover', function () {
+	var istanbul = require('gulp-istanbul');
+
+	return gulp
+		.src(paths.src)
+		.pipe(istanbul());
+});
+
+gulp.task('test', ['cover'], function () {
+	var istanbul = require('gulp-istanbul'),
+		mocha = require('gulp-mocha');
+
+	return gulp
+		.src(paths.test)
+		.pipe(mocha({ reporter: 'spec' }))
+		.pipe(istanbul.writeReports());
 });
