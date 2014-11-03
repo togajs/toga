@@ -25,6 +25,7 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "multistream": "^1.4.2",
     "vinyl-fs": "^0.3.7"
   },
   "devDependencies": {
@@ -37,7 +38,11 @@
     "gulp-jshint": "^1.8.4",
     "gulp-mocha": "^1.0.0",
     "gulp-watch": "^1.0.2",
-    "jshint-stylish": "^0.4.0"
+    "jshint-stylish": "^0.4.0",
+    "map-stream": "^0.1.0",
+    "toga-js": "^0",
+    "toga-md": "^0",
+    "toga-pura": "^0"
   },
   "engines": {
     "node": ">= 0.10"

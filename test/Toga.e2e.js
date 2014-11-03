@@ -1,51 +1,76 @@
 'use strict';
 
 var toga = require('../index'),
+	expect = require('expect.js'),
+	fs = require('fs'),
+	map = require('map-stream'),
 	config = {
-		src: 'fixtures/**/*.*',
-		dest: 'actual'
+		src: __dirname + '/fixtures/**/*.*',
+		dest: __dirname + '/actual',
+		css: __dirname + '/fixtures/**/*.css',
+		js: __dirname + '/fixtures/**/*.js',
+		perl: __dirname + '/fixtures/**/*.perl'
 	};
 
 describe('Toga', function () {
-	it('should generate docs via a streaming interface', function () {
-		// // stream
-		// toga.src(config.src)
-		// 	.pipe(toga.parser('js'))
-		// 	.pipe(toga.formatter('markdown'))
-		// 	.pipe(toga.compiler('pura'))
-		// 	.pipe(toga.dest(config.dest));
+	function toEqualExpected(file, cb) {
+		var expected = file.path.replace('fixtures', 'expected'),
+			retval = file.contents.toString();
+
+		expect(retval).to.be(fs.readFileSync(expected, 'utf8'));
+
+		cb(null, file);
+	}
+
+	it('should generate docs via a streaming interface', function (done) {
+		var js = require('toga-js'),
+			md = require('toga-markdown'),
+			pura = require('toga-pura');
+
+		toga
+			.src(config.src)
+			.pipe(js.parser())
+			.pipe(md.formatter())
+			.pipe(pura.compiler())
+			.pipe(map(toEqualExpected))
+			.pipe(toga.dest(config.dest))
+			.on('error', done)
+			.on('end', done);
 	});
 
-	it('should generate docs via a fluent interface', function () {
-		// // fluent
-		// toga.read(config.src)
-		// 	.parse('js')
-		// 	.format('markdown')
-		// 	.compile('pura')
-		// 	.write(config.dest);
-	});
-
-	it('should handle merged streams', function () {
-		// var merge = require('merge-stream');
-        //
-		// var css = toga
-		// 	.src(config.css)
-		// 	.pipe(toga.parser('css'))
-		// 	.pipe(toda.formatter('markdown'))
-		// 	.pipe(toda.formatter('sample'));
-        //
-		// var js = toga
-		// 	.src(config.js)
-		// 	.pipe(toga.parser('js'))
-		// 	.pipe(toda.formatter('markdown'));
-        //
-		// var perl = toga
-		// 	.src(config.perl)
-		// 	.pipe(toga.parser('perl'))
-		// 	.pipe(toda.formatter('pod'));
-        //
-		// merge(css, js, perl)
-		// 	.pipe(toga.compiler('pura'))
-		// 	.pipe(toga.dest(config.dest));
-	});
+	// TODO: Merged streams
+    //
+	// it('should handle joining multiple streams', function (done) {
+	// 	var css = require('toga-css'),
+	// 		js = require('toga-js'),
+	// 		perl = require('toga-perl'),
+	// 		md = require('toga-markdown'),
+	// 		sample = require('toga-sample'),
+	// 		pod = require('toga-pod'),
+	// 		pura = require('toga-pura'),
+    //
+	// 		api = toga
+	// 			.pipe(md.parser())
+	// 			.pipe(md.formatter()),
+    //
+	// 		client = toga
+	// 			.src(config.css)
+	// 			.pipe(css.parser())
+	// 			.pipe(js.parser())
+	// 			.pipe(md.formatter())
+	// 			.pipe(sample.formatter()),
+    //
+	// 		server = toga
+	// 			.src(config.perl)
+	// 			.pipe(perl.parser())
+	// 			.pipe(pod.formatter());
+    //
+	// 	toga
+	// 		.join(api, client, server)
+	// 		.pipe(pura.compiler())
+	// 		.pipe(map(toEqualExpected))
+	// 		.pipe(toga.dest(config.dest))
+	// 		.on('error', done)
+	// 		.on('end', done);
+	// });
 });

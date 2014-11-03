@@ -2,12 +2,12 @@
 
 var gulp = require('gulp'),
 	paths = {
-		gulp: 'gulpfile.js',
-		src: 'index.js',
-		test: 'test/**/*{.e2e,.spec}.js'
+		gulp: './gulpfile.js',
+		src: './index.js',
+		test: './test/*{.e2e,.spec}.js'
 	};
 
-gulp.task('default', ['lint', 'test']);
+gulp.task('default', ['test']);
 
 gulp.task('lint', function () {
 	var jscs = require('gulp-jscs'),
@@ -28,7 +28,7 @@ gulp.task('cover', function () {
 		.pipe(istanbul());
 });
 
-gulp.task('test', ['cover'], function () {
+gulp.task('test', ['lint', 'cover'], function () {
 	var istanbul = require('gulp-istanbul'),
 		mocha = require('gulp-mocha');
 
