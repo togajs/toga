@@ -3,7 +3,7 @@
 var toga = require('../index'),
 	expect = require('expect.js');
 
-describe('Toga', function () {
+describe('toga spec', function () {
 	it('should create an instance', function () {
 		var Toga = toga.Toga,
 			a = new Toga(),

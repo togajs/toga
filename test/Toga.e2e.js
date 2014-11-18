@@ -1,19 +1,24 @@
 'use strict';
 
 var toga = require('../index'),
+	es = require('event-stream'),
 	expect = require('expect.js'),
 	fs = require('fs'),
-	map = require('map-stream'),
+
 	config = {
 		src: __dirname + '/fixtures/**/*.*',
-		dest: __dirname + '/actual',
 		css: __dirname + '/fixtures/**/*.css',
 		js: __dirname + '/fixtures/**/*.js',
-		perl: __dirname + '/fixtures/**/*.perl'
+		perl: __dirname + '/fixtures/**/*.{pl,pm}',
+		dest: __dirname + '/actual'
 	};
 
-describe('Toga', function () {
+describe('toga e2e', function () {
+	var count;
+
 	function toEqualExpected(file, cb) {
+		count++;
+
 		var expected = file.path.replace('fixtures', 'expected'),
 			retval = file.contents.toString();
 
@@ -23,6 +28,8 @@ describe('Toga', function () {
 	}
 
 	it('should generate docs via a streaming interface', function (done) {
+		count = 0;
+
 		var js = require('toga-js'),
 			md = require('toga-markdown'),
 			pura = require('toga-pura');
@@ -32,10 +39,14 @@ describe('Toga', function () {
 			.pipe(js.parser())
 			.pipe(md.formatter())
 			.pipe(pura.compiler())
-			.pipe(map(toEqualExpected))
+			.pipe(es.map(toEqualExpected))
 			.pipe(toga.dest(config.dest))
 			.on('error', done)
-			.on('end', done);
+			.on('end', function () {
+				expect(count).to.be(1);
+				done();
+			});
+
 	});
 
 	// TODO: Merged streams
@@ -68,7 +79,7 @@ describe('Toga', function () {
 	// 	toga
 	// 		.join(api, client, server)
 	// 		.pipe(pura.compiler())
-	// 		.pipe(map(toEqualExpected))
+	// 		.pipe(es.map(toEqualExpected))
 	// 		.pipe(toga.dest(config.dest))
 	// 		.on('error', done)
 	// 		.on('end', done);
