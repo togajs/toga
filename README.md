@@ -24,9 +24,11 @@ CLI:
 
 Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
 
-## License
+----
 
-MIT
+© 2014 Shannon Moeller <me@shannonmoeller.com>
+
+Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
 [coveralls-img]: http://img.shields.io/coveralls/togajs/toga/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/togajs/toga
