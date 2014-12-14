@@ -1,4 +1,4 @@
-**NOTE: This project is in a pre-alpha state and currently under active development.**
+**NOTE: This project is under active development. Code is in a pre-alpha state and APIs may change.**
 
 # `toga`
 
