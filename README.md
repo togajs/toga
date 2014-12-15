@@ -12,7 +12,7 @@ One tool and one destination for all project documentation including user guides
 
 Module:
 
-    $ npm install toga
+    $ npm install --save-dev toga
 
 CLI:
 
