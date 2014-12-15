@@ -42,7 +42,7 @@ toga.dest(directory); // Just `require('vinyl-fs').dest`.
 toga.join(stream...); // Just `require('multistream')`.
 ```
 
-## togafile.js
+## Example `togafile.js`
 
 ### Basic
 
@@ -122,7 +122,7 @@ Standards for this project, including tests, code coverage, and semantics are en
 
 ### Test
 
-    $ npm test
+    $ gulp test
 
 ## License
 
