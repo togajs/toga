@@ -4,7 +4,7 @@
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url]
 
-One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation, via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform), a la [gulp](http://gulpjs.com/).
+One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
 
 ## Install
 
