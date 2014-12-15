@@ -1,4 +1,4 @@
-**NOTE: This project is under active development. No guarantees. APIs may change.**
+**NOTE: This project is under active development. APIs subject to change.**
 
 # `toga`
 
