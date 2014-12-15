@@ -49,9 +49,9 @@ describe('toga e2e', function () {
 
 	});
 
-	// TODO: Merged streams
-    //
-	// it('should handle joining multiple streams', function (done) {
+	it('TODO: should handle joining multiple streams', function (done) {
+		done();
+
 	// 	var css = require('toga-css'),
 	// 		js = require('toga-js'),
 	// 		perl = require('toga-perl'),
@@ -83,5 +83,5 @@ describe('toga e2e', function () {
 	// 		.pipe(toga.dest(config.dest))
 	// 		.on('error', done)
 	// 		.on('end', done);
-	// });
+	});
 });
