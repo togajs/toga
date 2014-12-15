@@ -20,7 +20,19 @@ CLI:
     
 ## Usage
 
-### Toga API
+```
+Usage: toga [options]
+
+Options:
+
+    -h, --help           output usage information
+    -c, --config <file>  specify configuration file [togafile.js]
+    -d, --cwd <dir>      specify working directory [.]
+    -v, --verbose        log actions as they happen
+    -V, --version        output the version number
+```
+
+## API
 
 ```js
 var toga = require('toga'); // Loads toga.
@@ -30,17 +42,7 @@ toga.dest(directory); // Just `require('vinyl-fs').dest`.
 toga.join(stream...); // Just `require('multistream')`.
 ```
 
-### Plugin API Convention
-
-```js
-var plugin = require('toga-plugin'); // Loads plugin.
-
-plugin.parser();    // Returns transform stream which converts code file to ast.
-plugin.formatter(); // Returns transform stream which modifies ast.
-plugin.compiler();  // Returns transform stream which converts ast to documentation file.
-```
-
-### Example
+### togafile.js
 
 #### Basic
 
@@ -112,29 +114,15 @@ toga
     .pipe(toga.dest(config.dest));
 ```
 
-### CLI
-
-```
-Usage: toga [options]
-
-Options:
-
-    -h, --help           output usage information
-    -c, --config <file>  specify configuration file [togafile.js]
-    -d, --cwd <dir>      specify working directory [.]
-    -v, --verbose        log actions as they happen
-    -V, --version        output the version number
-```
-
-## Test
-
-    $ npm test
-
 ## Contribute
 
 [![Tasks][waffle-img]][waffle-url] [![Chat][gitter-img]][gitter-url] [![Tip][gittip-img]][gittip-url]
 
 Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
+
+## Test
+
+    $ npm test
 
 ## License
 
