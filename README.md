@@ -42,9 +42,9 @@ toga.dest(directory); // Just `require('vinyl-fs').dest`.
 toga.join(stream...); // Just `require('multistream')`.
 ```
 
-### togafile.js
+## togafile.js
 
-#### Basic
+### Basic
 
 ```js
 var toga = require('toga'),
@@ -71,7 +71,7 @@ toga
     .pipe(toga.dest(config.dest));
 ```
 
-#### Advanced
+### Advanced
 
 ```js
 var toga = require('toga'),
@@ -120,7 +120,7 @@ toga
 
 Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
 
-## Test
+### Test
 
     $ npm test
 
