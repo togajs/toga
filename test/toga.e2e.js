@@ -35,7 +35,7 @@ describe('toga e2e', function () {
 			pura = require('toga-pura');
 
 		toga
-			.src(config.src)
+			.src(config.js)
 			.pipe(js.parser())
 			.pipe(md.formatter())
 			.pipe(pura.compiler())
