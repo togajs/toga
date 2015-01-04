@@ -5,8 +5,8 @@
  */
 
 var proto,
-	multi = require('multistream'),
-	vs = require('vinyl-fs');
+	multistream = require('multistream'),
+	vinyl = require('vinyl-fs');
 
 /**
  * @class Toga
@@ -27,7 +27,7 @@ proto = Toga.prototype;
  * @param {Object=} options
  * @return {Stream}
  */
-proto.src = vs.src;
+proto.src = vinyl.src;
 
 /**
  * @method dest
@@ -36,14 +36,14 @@ proto.src = vs.src;
  * @param {Function=} callback
  * @return {Stream}
  */
-proto.dest = vs.dest;
+proto.dest = vinyl.dest;
 
 /**
  * @method join
  * @param {Stream...|Array.<Stream>} argv
  * @return {Stream}
  */
-proto.join = multi;
+proto.join = multistream.obj;
 
 /**
  * @property Toga

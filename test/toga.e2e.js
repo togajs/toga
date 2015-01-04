@@ -6,9 +6,9 @@ var toga = require('../index'),
 	fs = require('fs'),
 
 	config = {
-		src: __dirname + '/fixtures/**/*.*',
-		css: __dirname + '/fixtures/**/*.css',
-		js: __dirname + '/fixtures/**/*.js',
+		src:  __dirname + '/fixtures/**/*.*',
+		css:  __dirname + '/fixtures/**/*.css',
+		js:   __dirname + '/fixtures/**/*.js',
 		perl: __dirname + '/fixtures/**/*.{pl,pm}',
 		dest: __dirname + '/actual'
 	};
@@ -19,17 +19,16 @@ describe('toga e2e', function () {
 	function toEqualExpected(file, cb) {
 		count++;
 
-		var expected = file.path.replace('fixtures', 'expected'),
-			retval = file.contents.toString();
-
-		expect(retval).to.be(fs.readFileSync(expected, 'utf8'));
-
+		var expected = file.path.replace('fixtures', 'expected');
+		expect(file.contents.toString()).to.be(fs.readFileSync(expected, 'utf8'));
 		cb(null, file);
 	}
 
-	it('should generate docs via a streaming interface', function (done) {
+	beforeEach(function () {
 		count = 0;
+	});
 
+	it('should generate docs via a streaming interface', function (done) {
 		var js = require('toga-js'),
 			md = require('toga-markdown'),
 			pura = require('toga-pura');
@@ -46,7 +45,6 @@ describe('toga e2e', function () {
 				expect(count).to.be(1);
 				done();
 			});
-
 	});
 
 	it('TODO: should handle joining multiple streams', function (done) {

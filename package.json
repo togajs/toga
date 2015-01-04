@@ -25,15 +25,15 @@
     "url": "https://github.com/togajs/toga.git"
   },
   "scripts": {
-    "coveralls": "gulp test && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "gulp test"
   },
   "dependencies": {
-    "commander": "^2.5.0",
-    "interpret": "^0.3.9",
-    "liftoff": "^0.13.6",
+    "commander": "^2.5.1",
+    "interpret": "^0.3.10",
+    "liftoff": "^1.0.0",
     "multistream": "^1.4.2",
-    "v8flags": "^1.0.6",
+    "v8flags": "^1.0.7",
     "vinyl-fs": "^0.3.13"
   },
   "devDependencies": {
