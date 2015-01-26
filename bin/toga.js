@@ -5,12 +5,11 @@ var Liftoff = require('liftoff'),
 	argv = require('commander'),
 	interpret = require('interpret'),
 	pkg = require('../package.json'),
-	v8flags = require('v8flags'),
 
 	cli = new Liftoff({
 		name: 'toga',
 		extensions: interpret.jsVariants,
-		nodeFlags: v8flags.fetch()
+		v8flags: ['--harmony']
 	});
 
 argv
