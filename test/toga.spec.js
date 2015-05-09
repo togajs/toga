@@ -1,48 +1,33 @@
-'use strict';
+/*eslint-env mocha */
 
-var toga = require('../index'),
-	expect = require('expect.js');
+import toga from '..src/toga';
+import expect from 'expect';
 
 describe('toga spec', function () {
-	it('should create an instance', function () {
-		var Toga = toga.Toga,
-			a = new Toga(),
-			b = Toga(); // jshint ignore:line
+	describe('src', function () {
+		it('should return a readable stream', function () {
+			var retval = toga.src('*.*');
 
-		expect(a).to.be.a(Toga);
-		expect(b).to.be.a(Toga);
-		expect(toga).to.be.a(Toga);
-
-		expect(a).not.to.be(b);
-		expect(b).not.to.be(toga);
+			expect(retval.pipe).toBeA(Function);
+			expect(retval.readable).toBe(true);
+		});
 	});
 
-	describe('prototype', function () {
-		describe('src', function () {
-			it('should return a readable stream', function () {
-				var retval = toga.src('*.*');
+	describe('dest', function () {
+		it('should return a writable stream', function () {
+			var retval = toga.dest('.');
 
-				expect(retval.pipe).to.be.a(Function);
-				expect(retval.readable).to.be(true);
-			});
+			expect(retval.pipe).toBeA(Function);
+			expect(retval.writable).toBe(true);
 		});
+	});
 
-		describe('dest', function () {
-			it('should return a writable stream', function () {
-				var retval = toga.dest('.');
+	describe('join', function () {
+		it('should return a readable stream', function () {
+			var retval = toga.join([]);
 
-				expect(retval.pipe).to.be.a(Function);
-				expect(retval.writable).to.be(true);
-			});
-		});
-
-		describe('join', function () {
-			it('should return a readable stream', function () {
-				var retval = toga.join([]);
-
-				expect(retval.pipe).to.be.a(Function);
-				expect(retval.readable).to.be(true);
-			});
+			expect(retval.pipe).toBeA(Function);
+			expect(retval.readable).toBe(true);
 		});
 	});
 });
