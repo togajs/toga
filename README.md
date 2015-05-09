@@ -1,5 +1,3 @@
-**NOTE: This project is under active development. APIs subject to change.**
-
 # `toga`
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url]
@@ -15,19 +13,17 @@ Module:
 CLI:
 
     $ npm install --global toga
-    
+
 ## Usage
 
 ```
 Usage: toga [options]
 
 Options:
-
-    -h, --help           output usage information
-    -c, --config <file>  specify configuration file [togafile.js]
-    -d, --cwd <dir>      specify working directory [.]
-    -v, --verbose        log actions as they happen
-    -V, --version        output the version number
+  -c, --config   Specify configuration file [togafile.js]
+  -d, --cwd      Specify working directory [.]
+  -h, --help     Show help
+  -v, --version  Show version number
 ```
 
 ## API
@@ -124,7 +120,7 @@ Standards for this project, including tests, code coverage, and semantics are en
 
 ----
 
-© 2014 Shannon Moeller <me@shannonmoeller.com>
+© 2015 Shannon Moeller <me@shannonmoeller.com>
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
