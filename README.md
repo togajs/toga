@@ -31,9 +31,12 @@ Options:
 ```js
 var toga = require('toga'); // Loads toga.
 
-toga.src(files);      // Just `require('vinyl-fs').src`.
-toga.dest(directory); // Just `require('vinyl-fs').dest`.
-toga.join(stream...); // Just `require('multistream')`.
+toga.src(files);        // Just `require('vinyl-fs').src`.
+toga.dest(directory);   // Just `require('vinyl-fs').dest`.
+
+toga.map(callback);     // Turns a map function into a transform stream.
+toga.merge(...streams); // Merges multiple readable streams into one.
+toga.push(...streams);  // Pushes objects from a readable stream into a duplex.
 ```
 
 ## Example `togafile.js`
@@ -103,7 +106,7 @@ var toga = require('toga'),
         .pipe(pod.formatter());
 
 toga
-    .join(manual, client, server)
+    .merge(manual, client, server)
     .pipe(pura.compiler())
     .pipe(toga.dest(config.dest));
 ```

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-import Liftoff from 'liftoff';
-import interpret from 'interpret';
+import findConfig from 'find-config';
 import pkg from '../package.json';
 import yargs from 'yargs';
+import { resolve } from 'path';
 
 var argv = yargs
 		.usage('Usage: $0 [options]')
-		.option('c', { alias: 'config', describe: 'Configuration file [togafile.js]' })
-		.option('d', { alias: 'cwd', describe: 'Working directory [.]' })
+		.option('c', { alias: 'config', describe: 'Configuration filename', default: 'togafile.js' })
+		.option('d', { alias: 'cwd', describe: 'Working directory', default: '.' })
 		.option('h', { alias: 'help' })
 		.option('v', { alias: 'version' })
 		.epilog('Documentation can be found at http://togajs.com/')
@@ -16,24 +16,14 @@ var argv = yargs
 		.help('h')
 		.argv,
 
-	app = new Liftoff({
-		name: 'toga',
-		extensions: interpret.jsVariants
-	}),
+	config = findConfig.obj(argv.config, {
+		cwd: resolve(argv.cwd)
+	});
 
-	options = {
-		configPath: argv.config,
-		cwd: argv.cwd
-	};
+if (!config) {
+	console.log('No togafile found.');
+	process.exit(1);
+}
 
-app.launch(options, function (env) {
-	var file = env.configPath;
-
-	if (!file) {
-		console.log('No togafile found.');
-		process.exit(1);
-	}
-
-	process.chdir(env.cwd);
-	require(file);
-});
+process.chdir(config.cwd);
+require(config.path);
