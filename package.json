@@ -26,8 +26,6 @@
   "dependencies": {
     "duplexify": "^3.4.0",
     "find-config": "^0.3.0",
-    "interpret": "^0.6.2",
-    "liftoff": "^2.1.0",
     "merge-stream": "^0.1.7",
     "through2": "^0.6.5",
     "vinyl-fs": "^1.0.0",
