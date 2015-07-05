@@ -1,6 +1,8 @@
+**NOTE: This project is under active development. APIs subject to change.**
+
 # `toga`
 
-[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Chat][gitter-img]][gitter-url]
+[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
 
 One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
 
@@ -34,9 +36,9 @@ var toga = require('toga'); // Loads toga.
 toga.src(files);        // Just `require('vinyl-fs').src`.
 toga.dest(directory);   // Just `require('vinyl-fs').dest`.
 
+toga.add(...streams);   // Turns streams into tributaries of another.
 toga.map(callback);     // Turns a map function into a transform stream.
-toga.merge(...streams); // Merges multiple readable streams into one.
-toga.push(...streams);  // Pushes objects from a readable stream into a duplex.
+toga.merge(...streams); // Turns multiple readable streams into one.
 ```
 
 ## Example `togafile.js`
@@ -81,17 +83,15 @@ var toga = require('toga'),
     pura = require('toga-pura'),
 
     config = {
-        manual: './src/assets/**/*.md',
-        css: './src/assets/**/*.css',
-        js: './src/assets/**/*.js',
+        manual: [
+            './README.md',
+            './src/assets/docs/*.md',
+        ],
+        css: './src/assets/css/*.css',
+        js: './src/assets/js/*.js',
         perl: './lib/**/*.{pl,pm}',
         dest: './web/docs'
     },
-
-    manual = toga
-        .src(config.manual)
-        .pipe(md.parser())
-        .pipe(md.formatter()),
 
     client = toga
         .src(config.css)
@@ -106,14 +106,19 @@ var toga = require('toga'),
         .pipe(pod.formatter());
 
 toga
-    .merge(manual, client, server)
-    .pipe(pura.compiler())
+    .src(config.manual)
+    .pipe(md.parser())
+    .pipe(md.formatter())
+    .pipe(toga.add(client, server))
+    .pipe(pura.compiler({
+        index: './README.md'
+    }))
     .pipe(toga.dest(config.dest));
 ```
 
 ## Contribute
 
-[![Tasks][waffle-img]][waffle-url] [![Tip][gittip-img]][gittip-url]
+[![Tasks][waffle-img]][waffle-url]
 
 Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
 
@@ -127,11 +132,13 @@ Standards for this project, including tests, code coverage, and semantics are en
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
+[amazon-img]:    https://img.shields.io/badge/amazon-tip_jar-yellow.svg?style=flat-square
+[amazon-url]:    https://www.amazon.com/gp/registry/wishlist/1VQM9ID04YPC5?sort=universal-price
+[coveralls-img]: http://img.shields.io/coveralls/togajs/toga-css/master.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/togajs/toga-css
 [downloads-img]: http://img.shields.io/npm/dm/toga.svg?style=flat-square
 [gitter-img]:    http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
 [gitter-url]:    https://gitter.im/togajs/toga
-[gittip-img]:    http://img.shields.io/gittip/shannonmoeller.svg?style=flat-square
-[gittip-url]:    https://www.gittip.com/shannonmoeller
 [npm-img]:       http://img.shields.io/npm/v/toga.svg?style=flat-square
 [npm-url]:       https://npmjs.org/package/toga
 [travis-img]:    http://img.shields.io/travis/togajs/toga.svg?style=flat-square

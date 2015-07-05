@@ -1,6 +1,15 @@
 /**
  * # Toga
  *
+ * One tool and one destination for all project documentation including user
+ * guides, developer guides, api documentation, styleguides, and pattern
+ * libraries for both front and back-end technologies. Source code for an entire
+ * project is streamed into documentation via [Transform Streams][ts] a la
+ * [gulp][gulp].
+ *
+ * [gulp]: http://gulpjs.com/
+ * [ts]: http://nodejs.org/api/stream.html#stream_class_stream_transform
+ *
  * @title Toga
  * @name toga
  */
@@ -31,7 +40,6 @@ var Toga = {
 	 * @method dest
 	 * @param {String} dir
 	 * @param {Object=} options
-	 * @param {Function=} callback
 	 * @return {Stream}
 	 */
 	dest,
@@ -46,6 +54,21 @@ var Toga = {
 	merge,
 
 	/**
+	 * Turns streams into tributaries of another.
+	 *
+	 * @method add
+	 * @param {Stream...|Array.<Stream>} streams
+	 * @return {Stream}
+	 */
+	add(...streams) {
+		var headwater = through.obj();
+
+		streams.push(headwater);
+
+		return duplex.obj(headwater, merge(streams));
+	},
+
+	/**
 	 * Turns a map function into a transform stream.
 	 *
 	 * @method map
@@ -58,21 +81,6 @@ var Toga = {
 		}
 
 		return through.obj(transform);
-	},
-
-	/**
-	 * Turns streams into tributaries of another.
-	 *
-	 * @method push
-	 * @param {Stream...|Array.<Stream>} streams
-	 * @return {Stream}
-	 */
-	push(...streams) {
-		var headwater = through.obj();
-
-		streams.unshift(headwater);
-
-		return duplex.obj(headwater, merge(streams));
 	}
 };
 

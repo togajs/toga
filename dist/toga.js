@@ -1,6 +1,15 @@
 /**
  * # Toga
  *
+ * One tool and one destination for all project documentation including user
+ * guides, developer guides, api documentation, styleguides, and pattern
+ * libraries for both front and back-end technologies. Source code for an entire
+ * project is streamed into documentation via [Transform Streams][ts] a la
+ * [gulp][gulp].
+ *
+ * [gulp]: http://gulpjs.com/
+ * [ts]: http://nodejs.org/api/stream.html#stream_class_stream_transform
+ *
  * @title Toga
  * @name toga
  */
@@ -48,7 +57,6 @@ var Toga = {
   * @method dest
   * @param {String} dir
   * @param {Object=} options
-  * @param {Function=} callback
   * @return {Stream}
   */
 	dest: _vinylFs.dest,
@@ -63,6 +71,25 @@ var Toga = {
 	merge: _mergeStream2['default'],
 
 	/**
+  * Turns streams into tributaries of another.
+  *
+  * @method add
+  * @param {Stream...|Array.<Stream>} streams
+  * @return {Stream}
+  */
+	add: function add() {
+		var headwater = _through22['default'].obj();
+
+		for (var _len = arguments.length, streams = Array(_len), _key = 0; _key < _len; _key++) {
+			streams[_key] = arguments[_key];
+		}
+
+		streams.push(headwater);
+
+		return _duplexify2['default'].obj(headwater, (0, _mergeStream2['default'])(streams));
+	},
+
+	/**
   * Turns a map function into a transform stream.
   *
   * @method map
@@ -75,25 +102,6 @@ var Toga = {
 		}
 
 		return _through22['default'].obj(transform);
-	},
-
-	/**
-  * Turns streams into tributaries of another.
-  *
-  * @method push
-  * @param {Stream...|Array.<Stream>} streams
-  * @return {Stream}
-  */
-	push: function push() {
-		for (var _len = arguments.length, streams = Array(_len), _key = 0; _key < _len; _key++) {
-			streams[_key] = arguments[_key];
-		}
-
-		var headwater = _through22['default'].obj();
-
-		streams.unshift(headwater);
-
-		return _duplexify2['default'].obj(headwater, (0, _mergeStream2['default'])(streams));
 	}
 };
 

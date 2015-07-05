@@ -1,9 +1,9 @@
 /*eslint-env mocha */
 
-import toga from '../src/toga';
-import expect from 'expect';
-import streamArray from 'stream-array';
-import supply from 'mtil/function/supply';
+var toga = require('../src/toga'),
+	expect = require('expect'),
+	streamArray = require('stream-array'),
+	supply = require('mtil/function/supply');
 
 describe('toga spec', function () {
 	describe('src', function () {
@@ -33,6 +33,43 @@ describe('toga spec', function () {
 		});
 	});
 
+	describe('add', function () {
+		it('should return a duplex stream', function () {
+			var retval = toga.add();
+
+			expect(retval.pipe).toBeA(Function);
+			expect(retval.readable).toBe(true);
+			expect(retval.writable).toBe(true);
+		});
+
+		it('should add streamed objects', function (done) {
+			var expectChunk = supply(
+				function (chunk) {
+					expect(chunk).toEqual('qux');
+				},
+				function (chunk) {
+					expect(chunk).toEqual('baz');
+				},
+				function (chunk) {
+					expect(chunk).toEqual('bat');
+				},
+				function (chunk) {
+					expect(chunk).toEqual('foo');
+				},
+				function (chunk) {
+					expect(chunk).toEqual('bar');
+				}
+			);
+
+			streamArray(['foo', 'bar'])
+				.pipe(toga.add(streamArray(['baz', 'bat'])))
+				.pipe(toga.add(streamArray(['qux'])))
+				.on('data', expectChunk)
+				.on('error', done)
+				.on('end', done);
+		});
+	});
+
 	describe('map', function () {
 		it('should return a duplex stream', function () {
 			var retval = toga.map();
@@ -56,43 +93,6 @@ describe('toga spec', function () {
 				.pipe(toga.map(function (value, cb) {
 					cb(null, value.toUpperCase());
 				}))
-				.on('data', expectChunk)
-				.on('error', done)
-				.on('end', done);
-		});
-	});
-
-	describe('push', function () {
-		it('should return a duplex stream', function () {
-			var retval = toga.push();
-
-			expect(retval.pipe).toBeA(Function);
-			expect(retval.readable).toBe(true);
-			expect(retval.writable).toBe(true);
-		});
-
-		it('should push streamed objects into another stream', function (done) {
-			var expectChunk = supply(
-				function (chunk) {
-					expect(chunk).toEqual('baz');
-				},
-				function (chunk) {
-					expect(chunk).toEqual('bat');
-				},
-				function (chunk) {
-					expect(chunk).toEqual('foo');
-				},
-				function (chunk) {
-					expect(chunk).toEqual('bar');
-				},
-				function (chunk) {
-					expect(chunk).toEqual('qux');
-				}
-			);
-
-			streamArray(['foo', 'bar'])
-				.pipe(toga.push(streamArray(['baz', 'bat'])))
-				.pipe(toga.push(streamArray(['qux'])))
 				.on('data', expectChunk)
 				.on('error', done)
 				.on('end', done);
