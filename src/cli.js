@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
 
 import findConfig from 'find-config';
 import pkg from '../package.json';
