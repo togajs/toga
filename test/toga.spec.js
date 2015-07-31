@@ -1,9 +1,9 @@
-/*eslint-env mocha */
+/* eslint-env mocha */
 
-var toga = require('../src/toga'),
-	expect = require('expect'),
-	streamArray = require('stream-array'),
-	supply = require('mtil/function/supply');
+import toga from '../src/toga';
+import expect from 'expect';
+import streamArray from 'stream-array';
+import supply from 'mtil/function/supply';
 
 describe('toga spec', function () {
 	describe('src', function () {

@@ -16,6 +16,7 @@
 
 import duplex from 'duplexify';
 import merge from 'merge-stream';
+import plumber from 'gulp-plumber';
 import through from 'through2';
 import { src, dest } from 'vinyl-fs';
 
@@ -32,7 +33,15 @@ var Toga = {
 	 * @param {Object=} options
 	 * @return {Stream}
 	 */
-	src,
+	src(...args) {
+		return src(...args)
+			.pipe(plumber({
+				handleError(err) {
+					console.log(err);
+					this.emit('end');
+				}
+			}));
+	},
 
 	/**
 	 * The `dest` method of [`vinyl-fs`](https://www.npmjs.com/package/vinyl-fs).
