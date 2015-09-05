@@ -20,6 +20,12 @@ import plumber from 'gulp-plumber';
 import through from 'through2';
 import { src, dest } from 'vinyl-fs';
 
+/* istanbul ignore next */
+function handleError(err) {
+	console.log(err);
+	this.emit('end');
+}
+
 /**
  * @class Toga
  * @static
@@ -35,12 +41,7 @@ var Toga = {
 	 */
 	src(...args) {
 		return src(...args)
-			.pipe(plumber({
-				handleError(err) {
-					console.log(err);
-					this.emit('end');
-				}
-			}));
+			.pipe(plumber({ handleError }));
 	},
 
 	/**

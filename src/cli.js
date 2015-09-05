@@ -1,11 +1,11 @@
-#!/usr/bin/env babel-node
+#!/usr/bin/env node
 
 import findConfig from 'find-config';
 import pkg from '../package.json';
 import yargs from 'yargs';
 import { resolve } from 'path';
 
-var argv = yargs
+var cli = yargs
 		.usage('Usage: $0 [options]')
 		.option('c', { alias: 'config', describe: 'Configuration filename', default: 'togafile.js' })
 		.option('d', { alias: 'cwd', describe: 'Working directory', default: '.' })
@@ -16,8 +16,8 @@ var argv = yargs
 		.help('h')
 		.argv,
 
-	config = findConfig.obj(argv.config, {
-		cwd: resolve(argv.cwd)
+	config = findConfig.obj(cli.config, {
+		cwd: resolve(cli.cwd)
 	});
 
 if (!config) {

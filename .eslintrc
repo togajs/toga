@@ -125,7 +125,7 @@
     "yoda": 0,                                // require or disallow Yoda conditions
 
     // Strict mode
-    "strict": 0,                              // controls location of Use Strict Directives
+    "strict": [1, "global"],                  // controls location of Use Strict Directives
 
     // Variables
     "no-catch-shadow": 2,                     // disallow the catch clause parameter name being the same as a variable in the outer scope (off by default in the node environment)
@@ -153,7 +153,7 @@
 
     // Style
     "indent": [2, "tab", {                    // this option sets a specific tab width for your code (off by default)
-      "indentSwitchCase": true
+      "SwitchCase": 1
     }],
     "brace-style": [2, "stroustrup"],         // enforce one true brace style (off by default)
     "camelcase": [2, {                        // require camel case names
