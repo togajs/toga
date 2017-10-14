@@ -10,18 +10,21 @@
     "lint": "run-s lint-*",
     "lint-prettier": "prettier --ignore-path .gitignore --write '**/*.{css,js}'",
     "lint-eslint": "eslint --ignore-path .gitignore --fix '**/*.js'",
+    "report": "nyc report -r text-lcov | coveralls",
     "test": "nyc run-s test-*",
-    "test-node": "tape -r babel-register 'packages/*/test/*.js' | tap-diff",
+    "test-node": "tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
     "postinstall": "lerna bootstrap",
     "precommit": "run-s lint && git add ."
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
     "blue-tape": "^1.0.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.8.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-config-whim": "^3.0.0",
@@ -34,12 +37,16 @@
   },
   "babel": {
     "plugins": [
-      "transform-es2015-modules-commonjs",
       "transform-object-rest-spread"
-    ]
+    ],
+    "presets": [["env", {
+      "targets": {
+        "node": 4
+      }
+    }]]
   },
   "engines": {
-    "node": "8.x",
-    "npm": "5.x"
+    "node": ">=4",
+    "npm": ">=2"
   }
 }
