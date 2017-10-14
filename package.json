@@ -12,7 +12,7 @@
     "lint-eslint": "eslint --ignore-path .gitignore --fix '**/*.js'",
     "report": "nyc report -r text-lcov | coveralls",
     "test": "nyc run-s test-*",
-    "test-node": "tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
+    "test-node": "blue-tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
     "postinstall": "lerna bootstrap",
     "precommit": "run-s lint && git add ."
   },
