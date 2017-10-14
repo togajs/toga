@@ -1,0 +1,27 @@
+{
+  "name": "toga",
+  "version": "1.0.0",
+  "description": "A language-agnostic documentation generator.",
+  "keywords": [
+    "toga",
+    "generator",
+    "documentation",
+    "docblock",
+    "docs",
+    "reference",
+    "styleguide"
+  ],
+  "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga#readme",
+  "repository": "togajs/toga",
+  "license": "MIT",
+  "main": "dist/toga.js",
+  "bin": {
+    "toga": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+  }
+}

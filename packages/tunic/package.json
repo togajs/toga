@@ -1,0 +1,24 @@
+{
+  "name": "tunic",
+  "version": "2.0.0",
+  "description": "A language-agnostic documentation-block parser.",
+  "keywords": [
+    "tunic",
+    "parser",
+    "documentation",
+    "docblock",
+    "docs",
+    "doc"
+  ],
+  "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/tunic#readme",
+  "repository": "togajs/toga",
+  "license": "MIT",
+  "main": "dist/tunic.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "regx": "^1.0.4"
+  }
+}
