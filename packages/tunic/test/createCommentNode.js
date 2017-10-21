@@ -23,7 +23,7 @@ test('should create a tagged comment node', async t => {
 		description: 'foo\n\nqux',
 		tags: [
 			{
-				type: 'CommentTag',
+				type: 'Tag',
 				tag: 'bar',
 				kind: '',
 				name: '',

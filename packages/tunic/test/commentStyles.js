@@ -26,7 +26,7 @@ test('angleBangDashDash', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -65,7 +65,7 @@ test('bangBang', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -106,7 +106,7 @@ hello world
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -147,7 +147,7 @@ test('curlyDashPipe', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -189,7 +189,7 @@ test('curlyHashHash', async t => {
 						'Description\n===========\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -230,7 +230,7 @@ test('curlyPercPerc', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -269,7 +269,7 @@ test('dashDashBang', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -309,7 +309,7 @@ test('doubleDouble', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -350,7 +350,7 @@ test('doubleDoubleDouble', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -391,7 +391,7 @@ test('hashHash', async t => {
 						'Description\n===========\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -433,7 +433,7 @@ test('hashHashHash', async t => {
 						'Description\n===========\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -474,7 +474,7 @@ test('parenStarStar', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -514,7 +514,7 @@ test('percPerc', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -555,7 +555,7 @@ test('percPercPerc', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -596,7 +596,7 @@ hello world
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -636,7 +636,7 @@ test('singleSingle', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -677,7 +677,7 @@ test('singleSingleSingle', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -716,7 +716,7 @@ test('slashSlashSlash', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',
@@ -757,7 +757,7 @@ test('slashStarStar', async t => {
 						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
 					tags: [
 						{
-							type: 'CommentTag',
+							type: 'Tag',
 							tag: 'arg',
 							kind: 'Type',
 							name: 'name',

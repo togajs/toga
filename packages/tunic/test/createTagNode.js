@@ -1,9 +1,9 @@
 import test from 'blue-tape';
-import { createCommentTagNode } from '../src/tunic';
+import { createTagNode } from '../src/tunic';
 
 test('should create an empty comment node', async t => {
-	t.deepEqual(createCommentTagNode(), {
-		type: 'CommentTag',
+	t.deepEqual(createTagNode(), {
+		type: 'Tag',
 		tag: '',
 		kind: '',
 		name: '',
@@ -12,8 +12,8 @@ test('should create an empty comment node', async t => {
 });
 
 test('should create an unnamed comment node', async t => {
-	t.deepEqual(createCommentTagNode('foo', 'bar', 'baz', null, 'qux'), {
-		type: 'CommentTag',
+	t.deepEqual(createTagNode('foo', 'bar', 'baz', null, 'qux'), {
+		type: 'Tag',
 		tag: 'foo',
 		kind: 'bar',
 		name: '',
@@ -22,16 +22,16 @@ test('should create an unnamed comment node', async t => {
 });
 
 test('should create a named comment node', async t => {
-	t.deepEqual(createCommentTagNode('foo', 'bar', 'baz', '-', 'qux'), {
-		type: 'CommentTag',
+	t.deepEqual(createTagNode('foo', 'bar', 'baz', '-', 'qux'), {
+		type: 'Tag',
 		tag: 'foo',
 		kind: 'bar',
 		name: 'baz',
 		description: 'qux'
 	});
 
-	t.deepEqual(createCommentTagNode('param', undefined, '[baz]', undefined, 'qux'), {
-		type: 'CommentTag',
+	t.deepEqual(createTagNode('param', undefined, '[baz]', undefined, 'qux'), {
+		type: 'Tag',
 		tag: 'param',
 		kind: '',
 		name: '[baz]',
@@ -39,9 +39,9 @@ test('should create a named comment node', async t => {
 	});
 
 	t.deepEqual(
-		createCommentTagNode('param', undefined, '[baz]', undefined, 'qux', { namedTags: ['foo'] }),
+		createTagNode('param', undefined, '[baz]', undefined, 'qux', { namedTags: ['foo'] }),
 		{
-			type: 'CommentTag',
+			type: 'Tag',
 			tag: 'param',
 			kind: '',
 			name: '',

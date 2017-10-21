@@ -5,7 +5,7 @@ import { atCurlyDash } from './tagStyles';
 const AST_TYPE_DOCUMENTATION = 'Documentation';
 const AST_TYPE_BLOCK = 'Block';
 const AST_TYPE_COMMENT = 'Comment';
-const AST_TYPE_COMMENT_TAG = 'CommentTag';
+const AST_TYPE_COMMENT_TAG = 'Tag';
 const AST_TYPE_CODE = 'Code';
 const RX_NEWLINE_DOS = /\r\n/g;
 
@@ -119,7 +119,7 @@ export function createCodeNode(code = '') {
 	};
 }
 
-export function createCommentTagNode(
+export function createTagNode(
 	tag = '',
 	kind = '',
 	name = '',
@@ -153,7 +153,7 @@ export function createCommentNode(comment = '', options) {
 	const tagNodes = [];
 
 	function extractTag(match, tag, kind, name, delimiter, description) {
-		tagNodes.push(createCommentTagNode(tag, kind, name, delimiter, description, options));
+		tagNodes.push(createTagNode(tag, kind, name, delimiter, description, options));
 
 		return '';
 	}
