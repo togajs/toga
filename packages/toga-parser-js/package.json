@@ -1,24 +1,27 @@
 {
-  "name": "@toga/tunic",
+  "name": "@toga/parser-js",
   "version": "1.0.0",
-  "description": "A language-agnostic documentation-block parser.",
+  "description": "A JavaScript documentation-block parser.",
   "keywords": [
     "tunic",
     "parser",
     "documentation",
     "docblock",
     "docs",
-    "doc"
+    "doc",
+    "js",
+    "jsx",
+    "ts"
   ],
   "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
-  "homepage": "https://github.com/togajs/toga/tree/master/packages/tunic#readme",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga-parser-js#readme",
   "repository": "togajs/toga",
   "license": "MIT",
-  "main": "dist/tunic.js",
+  "main": "dist/parser-js.js",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "regx": "^1.0.4"
+    "@toga/tunic": "*"
   }
 }

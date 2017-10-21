@@ -39,11 +39,32 @@
     "plugins": [
       "transform-object-rest-spread"
     ],
-    "presets": [["env", {
-      "targets": {
-        "node": 4
-      }
-    }]]
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 4
+          }
+        }
+      ]
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "**/dist/**",
+      "**/test/**"
+    ]
   },
   "engines": {
     "node": ">=4",

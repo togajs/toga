@@ -1,5 +1,5 @@
 {
-  "name": "toga",
+  "name": "@toga/toga",
   "version": "1.0.0",
   "description": "A language-agnostic documentation generator.",
   "keywords": [

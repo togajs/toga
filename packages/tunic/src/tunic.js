@@ -1,6 +1,6 @@
 import rx from 'regx';
-import { slashStarStar } from './commentStyles';
-import { atCurlyDash } from './tagStyles';
+import * as commentStyles from './commentStyles';
+import * as tagStyles from './tagStyles';
 
 const AST_TYPE_DOCUMENTATION = 'Documentation';
 const AST_TYPE_BLOCK = 'Block';
@@ -12,6 +12,8 @@ const RX_NEWLINE_DOS = /\r\n/g;
 const rxm = rx('m');
 const rxgm = rx('gm');
 
+const { slashStarStar } = commentStyles;
+const { atCurlyDash } = tagStyles;
 const defaultNamedTags = [
 	'arg',
 	'argument',
@@ -49,9 +51,16 @@ function memoize(fn) {
 }
 
 const compileCommentMatcher = memoize(options => {
-	const { commentStyle } = options || {};
+	let { commentStyle } = options || {};
 
-	options = { ...slashStarStar, ...commentStyle };
+	if (typeof commentStyle === 'string') {
+		commentStyle = commentStyles[commentStyle];
+	}
+
+	options = {
+		...slashStarStar,
+		...commentStyle
+	};
 
 	return rxm`
 		${options.open}
@@ -67,9 +76,16 @@ const compileCommentMatcher = memoize(options => {
 });
 
 const compileIndentMatcher = memoize(options => {
-	const { commentStyle } = options || {};
+	let { commentStyle } = options;
 
-	options = { ...slashStarStar, ...commentStyle };
+	if (typeof commentStyle === 'string') {
+		commentStyle = commentStyles[commentStyle];
+	}
+
+	options = {
+		...slashStarStar,
+		...commentStyle
+	};
 
 	return rxm`
 		^
@@ -78,9 +94,16 @@ const compileIndentMatcher = memoize(options => {
 });
 
 const compileTagMatcher = memoize(options => {
-	const { tagStyle } = options || {};
+	let { tagStyle } = options;
 
-	options = { ...atCurlyDash, ...tagStyle };
+	if (typeof tagStyle === 'string') {
+		tagStyle = tagStyles[tagStyle];
+	}
+
+	options = {
+		...atCurlyDash,
+		...tagStyle
+	};
 
 	return rxgm`
 		${options.tag}
@@ -207,3 +230,5 @@ export function parse(documentation = '', options) {
 export default function tunic(opts) {
 	return doc => parse(doc, opts);
 }
+
+export { commentStyles, tagStyles };
