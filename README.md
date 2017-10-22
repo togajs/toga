@@ -1,18 +1,12 @@
-**NOTE: This project is under active development. APIs subject to change.**
+<p align="center">
+    <a href="http://togajs.com">
+        <img alt="Toga" src="https://cdn.rawgit.com/togajs/togajs.github.io/develop/logo/toga.svg" width="300" height="300" />
+    </a>
+</p>
 
-# `toga`
-
-[![Build Status][travis-img]][travis-url] [![Tip][amazon-img]][amazon-url]
+<br /> [![Build Status][travis-img]][travis-url] [![Tip][amazon-img]][amazon-url]
 
 One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
-
-## Contribute
-
-Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
-
-### Test
-
-    $ npm test
 
 ----
 
