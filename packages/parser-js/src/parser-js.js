@@ -7,7 +7,7 @@ const parse = tunic({
 
 const extensions = new Set(['.js', '.jsx', '.mjs', '.sjs', '.ts']);
 
-export default function(file) {
+export default function parseJs(file) {
 	if (!file.docAst && extensions.has(file.extname)) {
 		file.docAst = parse(file.contents);
 	}

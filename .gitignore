@@ -1,6 +1,7 @@
 .nyc_output/
 coverage/
 dist/
+examples/*/
 node_modules/
 
 .DS_Store

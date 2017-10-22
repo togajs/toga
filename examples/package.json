@@ -1,0 +1,8 @@
+{
+  "name": "@toga/examples",
+  "private": true,
+  "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
+  "homepage": "http://togajs.com",
+  "repository": "togajs/toga",
+  "license": "MIT"
+}
