@@ -4,8 +4,6 @@
     </a>
 </p>
 
-<br />
-
 # `toga`
 
 [![Build Status][travis-img]][travis-url] [![Tip][amazon-img]][amazon-url]
