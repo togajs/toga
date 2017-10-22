@@ -4,7 +4,11 @@
     </a>
 </p>
 
-<br /> [![Build Status][travis-img]][travis-url] [![Tip][amazon-img]][amazon-url]
+<br />
+
+# `toga`
+
+[![Build Status][travis-img]][travis-url] [![Tip][amazon-img]][amazon-url]
 
 One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
 
