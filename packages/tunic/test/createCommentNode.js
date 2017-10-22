@@ -34,9 +34,14 @@ test('should create a tagged comment node', async t => {
 });
 
 test('should create an untagged comment node', async t => {
-	t.deepEqual(createCommentNode(' * foo\n * @bar\n *   baz\n * qux', { tagStyle: false }), {
-		type: 'Comment',
-		description: 'foo\n@bar\n  baz\nqux',
-		tags: []
-	});
+	t.deepEqual(
+		createCommentNode(' * foo\n * @bar\n *   baz\n * qux', {
+			tagStyle: false
+		}),
+		{
+			type: 'Comment',
+			description: 'foo\n@bar\n  baz\nqux',
+			tags: []
+		}
+	);
 });

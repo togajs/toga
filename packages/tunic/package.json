@@ -1,6 +1,6 @@
 {
   "name": "@toga/tunic",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A language-agnostic documentation-block parser.",
   "keywords": [
     "tunic",

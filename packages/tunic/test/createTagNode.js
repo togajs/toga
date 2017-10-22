@@ -39,7 +39,9 @@ test('should create a named comment node', async t => {
 	});
 
 	t.deepEqual(
-		createTagNode('param', undefined, '[baz]', undefined, 'qux', { namedTags: ['foo'] }),
+		createTagNode('param', undefined, '[baz]', undefined, 'qux', {
+			namedTags: ['foo']
+		}),
 		{
 			type: 'Tag',
 			tag: 'param',

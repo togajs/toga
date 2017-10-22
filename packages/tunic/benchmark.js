@@ -1,9 +1,12 @@
-import Benchmark from 'benchmark';
-import tunic from '../src/tunic';
-import * as babel from 'babel-core';
-import hljs from 'highlight.js';
+'use strict';
 
-const src = `
+const Benchmark = require('benchmark');
+const babel = require('babel-core');
+const docTree = require('doc-tree');
+const hljs = require('highlight.js');
+const tunic = require('./dist/tunic');
+
+const fixture = `
 	/**
 	 * # Descriptions
 	 *
@@ -121,28 +124,6 @@ const src = `
 	// ignore */
 `;
 
-/* * /
-
-tunic.parse(src);
-process.exit();
-
-/* */
-
-function log(value) {
-	console.log(JSON.stringify(value, null, 2));
-}
-
-/* * /
-
-log(babel.transform(src).ast);
-log(hljs.highlight('javascript', src));
-
-/* */
-
-log(tunic.parse(src));
-
-/* */
-
 function onCycle(event) {
 	console.log(String(event.target));
 }
@@ -152,10 +133,24 @@ function onComplete() {
 	console.log('Fastest is ', this.filter('fastest').map('name'));
 }
 
+/* * /
+
+function log(value) {
+	console.log(JSON.stringify(value, null, 2));
+}
+
+// log(babel.transform(fixture).ast);
+// log(docTree.parse(fixture).output());
+// log(hljs.highlight('javascript', fixture));
+// log(tunic.parse(fixture));
+
+/* */
+
 new Benchmark.Suite()
-	.add('babel', () => babel.transform(src).ast)
-	.add('hljs', () => hljs.highlight('javascript', src))
-	.add('tunic', () => tunic.parse(src))
+	.add('babel', () => babel.transform(fixture).ast)
+	.add('doc-tree', () => docTree.parse(fixture).output({ render: false }))
+	.add('highlight.js', () => hljs.highlight('javascript', fixture))
+	.add('tunic', () => tunic.parse(fixture))
 	.on('cycle', onCycle)
 	.on('complete', onComplete)
 	.run({ async: true });

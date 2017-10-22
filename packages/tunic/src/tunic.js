@@ -1,14 +1,15 @@
 import rx from 'regx';
+
 import * as commentStyles from './commentStyles';
 import * as tagStyles from './tagStyles';
 
-const AST_TYPE_DOCUMENTATION = 'Documentation';
-const AST_TYPE_BLOCK = 'Block';
-const AST_TYPE_COMMENT = 'Comment';
-const AST_TYPE_COMMENT_TAG = 'Tag';
-const AST_TYPE_CODE = 'Code';
-const RX_NEWLINE_DOS = /\r\n/g;
+export const AST_TYPE_DOCUMENTATION = 'Documentation';
+export const AST_TYPE_BLOCK = 'Block';
+export const AST_TYPE_COMMENT = 'Comment';
+export const AST_TYPE_COMMENT_TAG = 'Tag';
+export const AST_TYPE_CODE = 'Code';
 
+const RX_NEWLINE_DOS = /\r\n/g;
 const rxm = rx('m');
 const rxgm = rx('gm');
 
@@ -76,7 +77,7 @@ const compileCommentMatcher = memoize(options => {
 });
 
 const compileIndentMatcher = memoize(options => {
-	let { commentStyle } = options;
+	let { commentStyle } = options || {};
 
 	if (typeof commentStyle === 'string') {
 		commentStyle = commentStyles[commentStyle];
@@ -94,7 +95,7 @@ const compileIndentMatcher = memoize(options => {
 });
 
 const compileTagMatcher = memoize(options => {
-	let { tagStyle } = options;
+	let { tagStyle } = options || {};
 
 	if (typeof tagStyle === 'string') {
 		tagStyle = tagStyles[tagStyle];
@@ -176,7 +177,9 @@ export function createCommentNode(comment = '', options) {
 	const tagNodes = [];
 
 	function extractTag(match, tag, kind, name, delimiter, description) {
-		tagNodes.push(createTagNode(tag, kind, name, delimiter, description, options));
+		tagNodes.push(
+			createTagNode(tag, kind, name, delimiter, description, options)
+		);
 
 		return '';
 	}
@@ -204,7 +207,9 @@ export function createBlockNode(comment = '', code = '', options) {
 
 export function parse(documentation = '', options) {
 	const commentMatcher = compileCommentMatcher(options);
-	const [firstBlock, ...blocks] = documentation.replace(RX_NEWLINE_DOS, '\n').split(commentMatcher);
+	const [firstBlock, ...blocks] = documentation
+		.replace(RX_NEWLINE_DOS, '\n')
+		.split(commentMatcher);
 
 	// always lead with a comment
 	if (firstBlock.trim()) {

@@ -773,3 +773,44 @@ test('slashStarStar', async t => {
 		]
 	});
 });
+
+test('should select style by name', async t => {
+	const src = `
+		/**
+		 * # Description
+		 *
+		 * Long description that spans multiple
+		 * lines and even has markdown type things.
+		 *
+		 * @arg {Type} name Description.
+		 */
+		hello world
+	`;
+
+	t.deepEqual(parse(src, { commentStyle: 'slashStarStar' }), {
+		type: 'Documentation',
+		blocks: [
+			{
+				type: 'Block',
+				comment: {
+					type: 'Comment',
+					description:
+						'# Description\n\nLong description that spans multiple\nlines and even has markdown type things.\n\n',
+					tags: [
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: 'Type',
+							name: 'name',
+							description: 'Description.'
+						}
+					]
+				},
+				code: {
+					type: 'Code',
+					code: '\n\t\thello world\n\t'
+				}
+			}
+		]
+	});
+});

@@ -1,17 +1,17 @@
 import test from 'blue-tape';
 import File from 'vinyl-rw';
-import parseJs from '../src/parser-js.js';
+import parseCss from '../src/parser-css.js';
 
 const fixture = `
 	/**
 	 * Hello world.
 	 *
-	 * @param {String} foo - Lorem ipsum.
+	 * @name Demo
 	 */
 `;
 
-test('should parse a javascript file', async t => {
-	const { docAst } = parseJs(new File('foo.js', fixture));
+test('should parse a css file', { objectPrintDepth: 20 }, async t => {
+	const { docAst } = parseCss(new File('foo.css', fixture));
 
 	t.deepEqual(docAst, {
 		type: 'Documentation',
@@ -24,10 +24,10 @@ test('should parse a javascript file', async t => {
 					tags: [
 						{
 							type: 'Tag',
-							tag: 'param',
-							kind: 'String',
-							name: 'foo',
-							description: 'Lorem ipsum.'
+							tag: 'name',
+							kind: '',
+							name: '',
+							description: 'Demo'
 						}
 					]
 				},
@@ -40,8 +40,8 @@ test('should parse a javascript file', async t => {
 	});
 });
 
-test('should not parse a non javascript file', async t => {
-	const { docAst } = parseJs(new File('foo.css', fixture));
+test('should not parse a non css file', async t => {
+	const { docAst } = parseCss(new File('foo.js', fixture));
 
 	t.equal(docAst, undefined);
 });

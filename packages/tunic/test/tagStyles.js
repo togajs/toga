@@ -62,13 +62,55 @@ test('atCurlyDash', async t => {
 							name: 'name',
 							description: 'Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: 'Type', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: 'Type', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'name', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'name', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: 'Type',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: 'Type',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
 					]
 				},
@@ -97,9 +139,27 @@ test('atCurlyDash', async t => {
 							name: '',
 							description: 'name Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: 'Type', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: 'Type', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: 'name', description: 'Description.' },
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: 'Type',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: 'Type',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
 						{
 							type: 'Tag',
 							tag: 'tag',
@@ -107,9 +167,27 @@ test('atCurlyDash', async t => {
 							name: '',
 							description: 'name Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
 					]
 				},
@@ -182,13 +260,55 @@ test('backslashCurlyDash', async t => {
 							name: 'name',
 							description: 'Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: 'Type', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: 'Type', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'name', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'name', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: 'Description.', description: '' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: 'Type',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: 'Type',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: 'Description.',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
 					]
 				},
@@ -217,9 +337,27 @@ test('backslashCurlyDash', async t => {
 							name: '',
 							description: 'name Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: 'Type', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: 'Type', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: 'name', description: 'Description.' },
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: 'Type',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: 'Type',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: 'name',
+							description: 'Description.'
+						},
 						{
 							type: 'Tag',
 							tag: 'tag',
@@ -227,9 +365,27 @@ test('backslashCurlyDash', async t => {
 							name: '',
 							description: 'name Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
 					]
 				},
@@ -276,9 +432,27 @@ test('colon', async t => {
 					type: 'Comment',
 					description: 'Description.\n\n\n\n\nDescription.',
 					tags: [
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
 					]
 				},
@@ -293,9 +467,129 @@ test('colon', async t => {
 					type: 'Comment',
 					description: 'Description.\n\n\n\n\nDescription.',
 					tags: [
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: 'Description.' },
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '\n  Description.' },
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
+						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
+					]
+				},
+				code: {
+					type: 'Code',
+					code: '\n\t\tworld\n\t'
+				}
+			}
+		]
+	});
+});
+
+test('should select style by name', async t => {
+	const src = `
+		/**
+		 * Description.
+		 * arg : Description.
+		 * arg: Description.
+		 * arg :
+		 *   Description.
+		 * arg :
+		 * Description.
+		 */
+		hello
+
+		/**
+		 * Description.
+		 * tag : Description.
+		 * tag: Description.
+		 * tag :
+		 *   Description.
+		 * tag :
+		 * Description.
+		 */
+		world
+	`;
+
+	t.deepEqual(parse(src, { tagStyle: 'colon' }), {
+		type: 'Documentation',
+		blocks: [
+			{
+				type: 'Block',
+				comment: {
+					type: 'Comment',
+					description: 'Description.\n\n\n\n\nDescription.',
+					tags: [
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
+						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
+					]
+				},
+				code: {
+					type: 'Code',
+					code: '\n\t\thello\n\n'
+				}
+			},
+			{
+				type: 'Block',
+				comment: {
+					type: 'Comment',
+					description: 'Description.\n\n\n\n\nDescription.',
+					tags: [
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: 'Description.'
+						},
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: '\n  Description.'
+						},
 						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
 					]
 				},

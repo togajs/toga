@@ -5,7 +5,7 @@ const parse = tunic({
 	tagStyle: 'atCurlyDash'
 });
 
-const extensions = new Set(['.js', '.jsx', '.mjs', '.sjs', '.ts']);
+const extensions = new Set(['.css', '.less', '.scss']);
 
 export default function(file) {
 	if (!file.docAst && extensions.has(file.extname)) {
