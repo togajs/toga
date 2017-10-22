@@ -1,4 +1,4 @@
-# `tunic`
+# `@toga/tunic`
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
 
@@ -11,7 +11,7 @@ Tags are parsed greedily. If it looks like a tag, it's a tag. What you do with t
 ## Install
 
 ```
-$ npm install --save tunic
+$ npm install --save @toga/tunic
 ```
 
 ## Usage

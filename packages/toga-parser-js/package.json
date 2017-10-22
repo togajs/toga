@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A JavaScript documentation-block parser.",
   "keywords": [
-    "tunic",
+    "toga",
     "parser",
     "documentation",
     "docblock",

@@ -1,23 +1,23 @@
 {
-  "name": "@toga/parser-js",
+  "name": "@toga/parser-css",
   "version": "0.0.0",
-  "description": "A JavaScript documentation-block parser.",
+  "description": "A CSS documentation-block parser.",
   "keywords": [
-    "tunic",
+    "toga",
     "parser",
     "documentation",
     "docblock",
     "docs",
     "doc",
-    "js",
-    "jsx",
-    "ts"
+    "css",
+    "less",
+    "scss"
   ],
   "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
-  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga-parser-js#readme",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga-parser-css#readme",
   "repository": "togajs/toga",
   "license": "MIT",
-  "main": "dist/parser-js.js",
+  "main": "dist/parser-css.js",
   "files": [
     "dist"
   ],

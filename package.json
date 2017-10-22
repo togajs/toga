@@ -1,7 +1,7 @@
 {
   "name": "@toga/monorepo",
   "private": true,
-  "author": "Shannon Moeller <me@shannonmoeller.com> (shannonmoeller.com)",
+  "author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
   "homepage": "http://togajs.com",
   "repository": "togajs/toga",
   "license": "MIT",
@@ -64,7 +64,6 @@
     ]
   },
   "eslintConfig": {
-    "root": true,
     "extends": [
       "whim",
       "prettier"
@@ -93,7 +92,6 @@
     ]
   },
   "stylelint": {
-    "root": true,
     "extends": [
       "stylelint-config-whim",
       "stylelint-config-prettier"

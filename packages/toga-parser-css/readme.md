@@ -1,11 +1,11 @@
-# `toga-parser-css`
+# `@toga/parser-css`
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
 ## Install
 
 ```
-$ npm install --save toga-parser-css
+$ npm install --save @toga/parser-css
 ```
 
 ----
