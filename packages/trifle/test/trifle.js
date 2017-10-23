@@ -55,8 +55,7 @@ const ast = {
 			},
 			code: {
 				type: 'Code',
-				code:
-					"    escape(html) {\n        return String(html)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;');\n    }\n};"
+				code: '    stringify(val) {\n        return String(val);\n    }\n};'
 			}
 		}
 	]
@@ -112,8 +111,7 @@ const expected = {
 			},
 			code: {
 				type: 'Code',
-				code:
-					"    escape(html) {\n        return String(html)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;');\n    }\n};"
+				code: '    stringify(val) {\n        return String(val);\n    }\n};'
 			}
 		}
 	]
