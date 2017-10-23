@@ -10,7 +10,7 @@
     "build": "run-s build-*",
     "build-clean": "lerna exec -- del dist",
     "build-node": "lerna exec -- babel src -d dist",
-    "examples": "node -r babel-polyfill -r babel-register examples",
+    "examples": "babel-node examples",
     "lint": "run-s lint-*",
     "lint-prettier": "prettier --ignore-path .gitignore --write '**/*.{css,js}'",
     "lint-eslint": "eslint --ignore-path .gitignore --fix '**/*.js'",
@@ -27,7 +27,7 @@
     "babel-eslint": "^8.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "benchmark": "^2.1.4",
     "blue-tape": "^1.0.0",
@@ -45,12 +45,11 @@
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
     "prettier": "^1.7.4",
-    "spiff": "^3.2.2",
+    "spiff": "^4.0.0",
     "stylelint": "^8.2.0",
     "stylelint-config-prettier": "^1.0.2",
     "stylelint-config-whim": "^2.0.0",
-    "tap-diff": "^0.1.1",
-    "vinyl-rw": "^3.0.1"
+    "tap-diff": "^0.1.1"
   },
   "babel": {
     "plugins": [
@@ -85,15 +84,7 @@
   "prettier": {
     "printWidth": 80,
     "singleQuote": true,
-    "useTabs": true,
-    "overrides": [
-      {
-        "files": "*.json",
-        "options": {
-          "useTabs": false
-        }
-      }
-    ]
+    "useTabs": true
   },
   "stylelint": {
     "extends": [

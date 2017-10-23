@@ -1,5 +1,5 @@
 {
-  "name": "@toga/parser-css",
+  "name": "@toga/parse-css",
   "version": "0.0.0",
   "description": "A CSS documentation-block parser.",
   "keywords": [
@@ -14,10 +14,10 @@
     "scss"
   ],
   "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
-  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga-parser-css#readme",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/parse-css#readme",
   "repository": "togajs/toga",
   "license": "MIT",
-  "main": "dist/parser-css.js",
+  "main": "dist/parse-css.js",
   "files": [
     "dist"
   ],

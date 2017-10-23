@@ -2,8 +2,8 @@ import { exec } from 'child-process-promise';
 import { pathExists } from 'fs-extra';
 import { read, write } from 'spiff';
 
-import parseCss from '../packages/parser-css/dist/parser-css';
-import parseJs from '../packages/parser-js/dist/parser-js';
+import parseCss from '../packages/parse-css/dist/parse-css';
+import parseJs from '../packages/parse-js/dist/parse-js';
 
 async function clone(dir) {
 	console.time(`${dir} clone`);

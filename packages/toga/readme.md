@@ -2,6 +2,7 @@
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
+<!--
 One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
 
 ## Install
@@ -113,6 +114,7 @@ toga
     }))
     .pipe(toga.dest(config.dest));
 ```
+-->
 
 [downloads-img]: http://img.shields.io/npm/dm/toga.svg?style=flat-square
 [npm-img]:       http://img.shields.io/npm/v/toga.svg?style=flat-square

@@ -1,6 +1,6 @@
 import test from 'blue-tape';
-import File from 'vinyl-rw';
-import parseCss from '../src/parser-css.js';
+import { file } from 'spiff';
+import parseCss from '../src/parse-css.js';
 
 const fixture = `
 	/**
@@ -11,7 +11,7 @@ const fixture = `
 `;
 
 test('should parse a css file', { objectPrintDepth: 20 }, async t => {
-	const { docAst } = parseCss(new File('foo.css', fixture));
+	const { docAst } = parseCss(file('foo.css', fixture));
 
 	t.deepEqual(docAst, {
 		type: 'Documentation',
@@ -41,7 +41,7 @@ test('should parse a css file', { objectPrintDepth: 20 }, async t => {
 });
 
 test('should not parse a non css file', async t => {
-	const { docAst } = parseCss(new File('foo.js', fixture));
+	const { docAst } = parseCss(file('foo.js', fixture));
 
 	t.equal(docAst, undefined);
 });

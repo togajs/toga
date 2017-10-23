@@ -1,6 +1,6 @@
 import test from 'blue-tape';
-import File from 'vinyl-rw';
-import parseJs from '../src/parser-js.js';
+import { file } from 'spiff';
+import parseJs from '../src/parse-js.js';
 
 const fixture = `
 	/**
@@ -11,7 +11,7 @@ const fixture = `
 `;
 
 test('should parse a javascript file', async t => {
-	const { docAst } = parseJs(new File('foo.js', fixture));
+	const { docAst } = parseJs(file('foo.js', fixture));
 
 	t.deepEqual(docAst, {
 		type: 'Documentation',
@@ -41,7 +41,7 @@ test('should parse a javascript file', async t => {
 });
 
 test('should not parse a non javascript file', async t => {
-	const { docAst } = parseJs(new File('foo.css', fixture));
+	const { docAst } = parseJs(file('foo.css', fixture));
 
 	t.equal(docAst, undefined);
 });

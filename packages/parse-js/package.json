@@ -1,5 +1,5 @@
 {
-  "name": "@toga/parser-js",
+  "name": "@toga/parse-js",
   "version": "0.0.0",
   "description": "A JavaScript documentation-block parser.",
   "keywords": [
@@ -14,10 +14,10 @@
     "ts"
   ],
   "author": "Shannon Moeller <me@shannonmoeller> (http://shannonmoeller.com)",
-  "homepage": "https://github.com/togajs/toga/tree/master/packages/toga-parser-js#readme",
+  "homepage": "https://github.com/togajs/toga/tree/master/packages/parse-js#readme",
   "repository": "togajs/toga",
   "license": "MIT",
-  "main": "dist/parser-js.js",
+  "main": "dist/parse-js.js",
   "files": [
     "dist"
   ],
