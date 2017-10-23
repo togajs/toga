@@ -23,6 +23,7 @@
     "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
+    "ast-traverse": "^0.1.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -49,7 +50,8 @@
     "stylelint": "^8.2.0",
     "stylelint-config-prettier": "^1.0.2",
     "stylelint-config-whim": "^2.0.0",
-    "tap-diff": "^0.1.1"
+    "tap-diff": "^0.1.1",
+    "traverse": "^0.6.6"
   },
   "babel": {
     "plugins": [
