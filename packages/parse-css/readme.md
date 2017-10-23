@@ -1,4 +1,4 @@
-# `@toga/parser-css`
+# `@toga/parse-css`
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
