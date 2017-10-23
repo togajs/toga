@@ -80,7 +80,7 @@ Look [familiar][redux]?
 
 - `ast` `{Object}` - An object representing any [AST][ast] where nodes have a `type` property.
 - `visitor` `{Function(node, meta): Object?}` - A function to be called with each node in the tree.
-  - `node` `{Object}` - The original object from the AST. Return the node, a replacement node, or `undefined` to delete it.
+  - `node` `{Object}` - The original object from the AST. Return the node, a new node, or `undefined` to delete it.
   - `meta` `{Object}` - Information about the current node including the path, references to parent nodes, etc. See the [`traverse` context documentation][traverse] for a full list of available properties and methods.
 
 ----
