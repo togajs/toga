@@ -1,20 +1,14 @@
-# `toga`
+# `@toga/toga`
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
-<!--
-One tool and one destination for all project documentation including user guides, developer guides, styleguides, and api documentation for both front and back-end technologies. Source code for an entire project is streamed into documentation via [Transform Streams](http://nodejs.org/api/stream.html#stream_class_stream_transform) a la [gulp](http://gulpjs.com/).
-
 ## Install
 
-Module:
+```
+$ npm install --save @toga/toga
+```
 
-    $ npm install --save-dev toga
-
-CLI:
-
-    $ npm install --global toga
-
+<!--
 ## Usage
 
 ```
@@ -116,6 +110,12 @@ toga
 ```
 -->
 
-[downloads-img]: http://img.shields.io/npm/dm/toga.svg?style=flat-square
-[npm-img]:       http://img.shields.io/npm/v/toga.svg?style=flat-square
-[npm-url]:       https://npmjs.org/package/toga
+----
+
+© 2017 Shannon Moeller <me@shannonmoeller.com>
+
+Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+
+[downloads-img]: http://img.shields.io/npm/dm/@toga/toga.svg?style=flat-square
+[npm-img]:       http://img.shields.io/npm/v/@toga/toga.svg?style=flat-square
+[npm-url]:       https://npmjs.org/package/@toga/toga

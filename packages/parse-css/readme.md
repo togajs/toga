@@ -5,7 +5,7 @@
 ## Install
 
 ```
-$ npm install --save @toga/parser-css
+$ npm install --save @toga/parse-css
 ```
 
 ----
@@ -14,6 +14,6 @@ $ npm install --save @toga/parser-css
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
-[downloads-img]: http://img.shields.io/npm/dm/@toga/parser-css.svg?style=flat-square
-[npm-img]:       http://img.shields.io/npm/v/@toga/parser-css.svg?style=flat-square
-[npm-url]:       https://npmjs.org/package/toga-parser-css
+[downloads-img]: http://img.shields.io/npm/dm/@toga/parse-css.svg?style=flat-square
+[npm-img]:       http://img.shields.io/npm/v/@toga/parse-css.svg?style=flat-square
+[npm-url]:       https://npmjs.org/package/@toga/parse-css

@@ -5,7 +5,7 @@
 ## Install
 
 ```
-$ npm install --save @toga/parser-js
+$ npm install --save @toga/parse-js
 ```
 
 ----
@@ -14,6 +14,6 @@ $ npm install --save @toga/parser-js
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
-[downloads-img]: http://img.shields.io/npm/dm/@toga/parser-js.svg?style=flat-square
-[npm-img]:       http://img.shields.io/npm/v/@toga/parser-js.svg?style=flat-square
-[npm-url]:       https://npmjs.org/package/toga-parser-js
+[downloads-img]: http://img.shields.io/npm/dm/@toga/parse-js.svg?style=flat-square
+[npm-img]:       http://img.shields.io/npm/v/@toga/parse-js.svg?style=flat-square
+[npm-url]:       https://npmjs.org/package/@toga/parse-js

@@ -1,8 +1,8 @@
 # `@toga/tunic`
 
-[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Chat][gitter-img]][gitter-url] [![Tip][amazon-img]][amazon-url]
+[![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
-A documentation-block parser. Generates a [DocTree][doctree] abstract syntax tree using a customizable regular-expression grammar. Defaults to parsing C-style comment blocks, so it supports C, C++, Java, JavaScript, PHP, and even CSS right out of the box.
+A documentation-block parser. Generates a [DocTree][doctree] abstract syntax tree using customizable regular-expression grammars. Defaults to parsing C-style comment blocks, so it supports C, C++, Java, JavaScript, PHP, and even CSS right out of the box.
 
 Documentation blocks follow the conventions of other standard tools such as Javadoc, JSDoc, Google Closure, PHPDoc, etc. The primary difference is that nothing is inferred from the code. If you want it documented, _you_ must document it. This is why you can use `tunic` to parse inline documentation out of almost any language that supports multi-line comments.
 
@@ -14,6 +14,7 @@ Tags are parsed greedily. If it looks like a tag, it's a tag. What you do with t
 $ npm install --save @toga/tunic
 ```
 
+<!--
 ## Usage
 
 ```js
@@ -83,38 +84,16 @@ import * as grammar from 'tunic/grammars/css';
 const cssDocAst = parse('/** ... */', grammar); // -> ast object
 ```
 
-## Test
-
-```
-$ npm test
-```
-
-## Contribute
-
-[![Tasks][waffle-img]][waffle-url]
-
-Standards for this project, including tests, code coverage, and semantics are enforced with a build tool. Pull requests must include passing tests with 100% code coverage and no linting errors.
+-->
 
 ----
 
-© 2016 Shannon Moeller <me@shannonmoeller.com>
+© 2017 Shannon Moeller <me@shannonmoeller.com>
 
 Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
 [doctree]:       https://github.com/togajs/doctree
-[grammars]:      https://github.com/togajs/tunic/tree/master/src/grammars
-[jsnext]:        https://github.com/rollup/rollup/wiki/jsnext:main
 
-[amazon-img]:    https://img.shields.io/badge/amazon-tip_jar-yellow.svg?style=flat-square
-[amazon-url]:    https://www.amazon.com/gp/registry/wishlist/1VQM9ID04YPC5?sort=universal-price
-[coveralls-img]: http://img.shields.io/coveralls/togajs/tunic/master.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/togajs/tunic
-[downloads-img]: http://img.shields.io/npm/dm/tunic.svg?style=flat-square
-[gitter-img]:    http://img.shields.io/badge/gitter-join_chat-1dce73.svg?style=flat-square
-[gitter-url]:    https://gitter.im/togajs/toga
-[npm-img]:       http://img.shields.io/npm/v/tunic.svg?style=flat-square
-[npm-url]:       https://npmjs.org/package/tunic
-[travis-img]:    http://img.shields.io/travis/togajs/tunic.svg?style=flat-square
-[travis-url]:    https://travis-ci.org/togajs/tunic
-[waffle-img]:    http://img.shields.io/github/issues/togajs/tunic.svg?style=flat-square
-[waffle-url]:    http://waffle.io/togajs/tunic
+[downloads-img]: http://img.shields.io/npm/dm/@toga/toga.svg?style=flat-square
+[npm-img]:       http://img.shields.io/npm/v/@toga/toga.svg?style=flat-square
+[npm-url]:       https://npmjs.org/package/@toga/toga
