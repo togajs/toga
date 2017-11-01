@@ -1,6 +1,6 @@
 import test from 'blue-tape';
-import { parse } from '../src/tunic';
-import * as commentStyles from '../src/commentStyles';
+import { parse } from '../src/tunic.js';
+import * as commentStyles from '../src/comment-styles.js';
 
 test('angleBangDashDash', async t => {
 	const src = `

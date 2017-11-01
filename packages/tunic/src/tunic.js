@@ -1,7 +1,7 @@
 import rx from 'regx';
 
-import * as commentStyles from './commentStyles';
-import * as tagStyles from './tagStyles';
+import * as commentStyles from './comment-styles.js';
+import * as tagStyles from './tag-styles.js';
 
 export const AST_TYPE_DOCUMENTATION = 'Documentation';
 export const AST_TYPE_BLOCK = 'Block';

@@ -10,14 +10,16 @@
     "build": "run-s build-*",
     "build-clean": "lerna exec -- del dist",
     "build-node": "lerna exec -- babel src -d dist",
-    "examples": "babel-node examples",
+    "examples": "run-s examples-*",
+    "examples-clean": "del examples/docs",
+    "examples-node": "babel-node examples",
     "lint": "run-s lint-*",
     "lint-prettier": "prettier --ignore-path .gitignore --write '**/*.{css,js}'",
     "lint-eslint": "eslint --ignore-path .gitignore --fix '**/*.js'",
     "lint-stylelint": "stylelint --ignore-path .gitignore --fix '**/*.css'",
     "report": "nyc report -r text-lcov | coveralls",
     "test": "nyc run-s test-*",
-    "test-node": "blue-tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
+    "test-node": "NODE_ENV=test blue-tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
     "precommit": "run-s lint && git add .",
     "prepublish": "run-s build",
     "postinstall": "lerna bootstrap"
@@ -26,6 +28,7 @@
     "ast-traverse": "^0.1.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.1",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -43,6 +46,7 @@
     "highlight.js": "^9.12.0",
     "husky": "^0.14.3",
     "lerna": "^2.4.0",
+    "mock-fs": "^4.4.2",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
     "prettier": "^1.7.4",
@@ -66,7 +70,14 @@
           }
         }
       ]
-    ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -95,12 +106,14 @@
     ]
   },
   "nyc": {
-    "check-coverage": true,
+    "check-coverage": false,
     "per-file": true,
     "lines": 100,
     "statements": 100,
     "functions": 100,
     "branches": 100,
+    "sourceMap": false,
+    "instrument": false,
     "include": [
       "**/src/**"
     ],

@@ -1,13 +1,12 @@
-/* eslint-disable array-callback-return, no-invalid-this */
 import traverse from 'traverse';
 
 function visit(fn, node, meta) {
-	// not interested
+	// Not interested
 	if (node === null || typeof node !== 'object') {
 		return;
 	}
 
-	// remove deleted nodes
+	// Remove deleted nodes
 	if (Array.isArray(node)) {
 		meta.after(() => {
 			meta.update(node.filter(x => x !== undefined));
@@ -16,7 +15,7 @@ function visit(fn, node, meta) {
 		return;
 	}
 
-	// update ast nodes
+	// Update AST nodes
 	if (typeof node.type === 'string') {
 		const result = fn(node, meta);
 
@@ -29,7 +28,11 @@ function visit(fn, node, meta) {
 }
 
 export default function trifle(ast, fn) {
-	return traverse(ast).map(function map(node) {
+	function map(node) {
+		// The traverse module sets the meta object as `this`.
+		// eslint-disable-next-line no-invalid-this
 		visit(fn, node, this);
-	});
+	}
+
+	return traverse(ast).map(map);
 }

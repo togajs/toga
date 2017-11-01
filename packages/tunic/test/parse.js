@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import { parse } from '../src/tunic';
+import { parse } from '../src/tunic.js';
 
 test('should create an empty documentation node', async t => {
 	t.deepEqual(parse(), {

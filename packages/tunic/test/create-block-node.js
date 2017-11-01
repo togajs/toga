@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import { createBlockNode } from '../src/tunic';
+import { createBlockNode } from '../src/tunic.js';
 
 test('should create an empty block node', async t => {
 	t.deepEqual(createBlockNode(), {

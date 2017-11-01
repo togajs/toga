@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 import { parse } from '../src/tunic';
-import * as tagStyles from '../src/tagStyles';
+import * as tagStyles from '../src/tag-styles.js';
 
 test('atCurlyDash', async t => {
 	const src = `

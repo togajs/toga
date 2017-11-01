@@ -24,6 +24,7 @@ async function generate(dir) {
 		.mapProp('contents', (contents, i, file) =>
 			JSON.stringify(file.docAst, null, 2)
 		)
+		.mapProp('path', x => x + '/index.html')
 		.map(write(`docs/${dir}`));
 
 	console.timeEnd(`${dir} generate`);

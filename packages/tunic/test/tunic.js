@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 import tunic from '../src/tunic';
-import { hashHashHash } from '../src/commentStyles';
+import { hashHashHash } from '../src/comment-styles.js';
 
 test('should create a reusable parser', async t => {
 	const parser = tunic({ commentStyle: hashHashHash });

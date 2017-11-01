@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import { createCommentNode } from '../src/tunic';
+import { createCommentNode } from '../src/tunic.js';
 
 test('should create an empty comment node', async t => {
 	t.deepEqual(createCommentNode(), {

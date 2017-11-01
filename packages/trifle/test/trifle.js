@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import trifle from '../src/trifle';
+import trifle from '../src/trifle.js';
 
 const ast = {
 	type: 'Documentation',
