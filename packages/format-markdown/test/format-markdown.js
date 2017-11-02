@@ -1,5 +1,4 @@
 import test from 'blue-tape';
-import { file } from 'spiff';
 import { parse } from '@toga/tunic';
 import formatMarkdown from '../src/format-markdown.js';
 
@@ -17,9 +16,42 @@ const fixture = `
 	}
 `;
 
-test('should format descriptions', async t => {
-	const doc = parse(file('foo.js', fixture));
-	const { docAst } = formatMarkdown(doc);
+test('should format descriptions', { objectPrintDepth: 20 }, async t => {
+	const { docAst } = formatMarkdown({
+		docAst: parse(fixture)
+	});
 
-	t.deepEqual(docAst, {});
+	t.deepEqual(docAst, {
+		type: 'Documentation',
+		blocks: [
+			{
+				type: 'Block',
+				comment: {
+					type: 'Comment',
+					description:
+						'<h1 id="hello-world">Hello World</h1>\n<p>This is my description of this thing.</p>\n',
+					tags: [
+						{
+							type: 'Tag',
+							tag: 'method',
+							kind: '',
+							name: 'foo',
+							description: ''
+						},
+						{
+							type: 'Tag',
+							tag: 'param',
+							kind: 'String',
+							name: 'foo',
+							description: '<p>I hope you like it.</p>\n'
+						}
+					]
+				},
+				code: {
+					type: 'Code',
+					code: '\n\texport function log(foo) {\n\t\tconsole.log(foo);\n\t}\n'
+				}
+			}
+		]
+	});
 });

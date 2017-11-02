@@ -1,11 +1,5 @@
 import trifle from '@toga/trifle';
-import remark from 'remark';
-import html from 'remark-html';
-import slug from 'remark-slug';
-
-const processor = remark()
-	.use(slug)
-	.use(html);
+import marked from 'marked';
 
 export default function formatMarkdown(file) {
 	if (!file.docAst) {
@@ -17,7 +11,7 @@ export default function formatMarkdown(file) {
 			return node;
 		}
 
-		node.description = processor.process(node.description);
+		node.description = marked(node.description);
 
 		return node;
 	});
