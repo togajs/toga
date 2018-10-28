@@ -20,5 +20,11 @@
   ],
   "dependencies": {
     "traverse": "^0.6.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

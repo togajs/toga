@@ -22,10 +22,16 @@
     "dist"
   ],
   "dependencies": {
-    "@toga/trifle": "*",
+    "@toga/trifle": "0.0.0",
     "marked": "^0.3.6"
   },
   "devDependencies": {
-    "@toga/tunic": "*"
+    "@toga/tunic": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

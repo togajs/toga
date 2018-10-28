@@ -17,17 +17,19 @@
     "lint-prettier": "prettier --ignore-path .gitignore --write '**/*.{css,js}'",
     "lint-eslint": "eslint --ignore-path .gitignore --fix '**/*.js'",
     "lint-stylelint": "stylelint --ignore-path .gitignore --fix '**/*.css'",
-    "report": "nyc report -r text-lcov | coveralls",
     "test": "nyc run-s test-*",
     "test-node": "NODE_ENV=test blue-tape -r babel-polyfill -r babel-register 'packages/*/test/*.js' | tap-diff",
-    "precommit": "run-s lint && git add .",
-    "prepublish": "run-s build",
+    "report": "nyc report -r text-lcov | coveralls",
+    "precommit": "run-s test build && git add .",
+    "pretest": "run-s lint",
+    "publish": "run-s precommit && lerna publish",
+    "publish-beta": "run-s precommit && lerna publish --preid=beta --npm-tag=beta",
     "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
     "ast-traverse": "^0.1.1",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.3",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
@@ -39,21 +41,21 @@
     "coveralls": "^3.0.0",
     "del-cli": "^1.1.0",
     "doc-tree": "^0.12.2",
-    "eslint": "^4.9.0",
-    "eslint-config-prettier": "^2.6.0",
+    "eslint": "^4.13.1",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-config-whim": "^3.0.0",
-    "fs-extra": "^4.0.2",
+    "fs-extra": "^5.0.0",
     "highlight.js": "^9.12.0",
     "husky": "^0.14.3",
-    "lerna": "^2.4.0",
+    "lerna": "^2.5.1",
     "mock-fs": "^4.4.2",
-    "npm-run-all": "^4.1.1",
-    "nyc": "^11.2.1",
-    "prettier": "^1.7.4",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^11.3.0",
+    "prettier": "^1.9.2",
     "spiff": "^4.0.0",
-    "stylelint": "^8.2.0",
-    "stylelint-config-prettier": "^1.0.2",
-    "stylelint-config-whim": "^2.0.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-prettier": "^2.0.0",
+    "stylelint-config-whim": "^4.0.1",
     "tap-diff": "^0.1.1",
     "traverse": "^0.6.6"
   },
@@ -66,7 +68,8 @@
         "env",
         {
           "targets": {
-            "node": 4
+            "browsers": false,
+            "node": 6
           }
         }
       ]
@@ -117,7 +120,7 @@
     ]
   },
   "engines": {
-    "node": ">=4",
-    "npm": ">=2"
+    "node": ">=6",
+    "npm": ">=3"
   }
 }

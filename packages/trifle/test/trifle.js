@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import trifle from '../src/trifle.js';
+import { walk } from '../src/trifle.js';
 
 const ast = {
 	type: 'Documentation',
@@ -55,7 +55,8 @@ const ast = {
 			},
 			code: {
 				type: 'Code',
-				code: '    stringify(val) {\n        return String(val);\n    }\n};'
+				code:
+					'    stringify(val) {\n        return String(val);\n    }\n};'
 			}
 		}
 	]
@@ -81,7 +82,7 @@ const expected = {
 						tag: 'static'
 					}
 				],
-				isLeaf: false
+				foo: 'bar'
 			},
 			code: {
 				type: 'Code',
@@ -104,39 +105,41 @@ const expected = {
 						tag: 'return',
 						kind: 'String',
 						description: 'ESCAPED HTML.',
-						isLeaf: false
+						foo: 'bar'
 					}
 				],
-				isLeaf: false
+				foo: 'bar'
 			},
 			code: {
 				type: 'Code',
-				code: '    stringify(val) {\n        return String(val);\n    }\n};'
+				code:
+					'    stringify(val) {\n        return String(val);\n    }\n};'
 			}
 		}
 	]
 };
 
 test('should modify ast nodes', { objectPrintDepth: 20 }, async t => {
-	const actual = trifle(ast, (node, meta) => {
-		const { description, name } = node;
-		const { isLeaf } = meta;
+	const actual = await walk(ast, async node => {
+		const { description, name, type } = node;
 
-		// should drop nodes
+		t.equal(typeof type, 'string');
+
+		// Should drop nodes
 		if (name === 'html') {
 			return;
 		}
 
-		// should not modify nodes
+		// Should not modify nodes
 		if (!description) {
 			return node;
 		}
 
-		// should modify nodes
+		// Should modify nodes
 		return {
 			...node,
 			description: description.toUpperCase(),
-			isLeaf
+			foo: 'bar'
 		};
 	});
 

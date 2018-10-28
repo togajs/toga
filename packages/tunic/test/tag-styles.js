@@ -46,7 +46,8 @@ test('atCurlyDash', async t => {
 				type: 'Block',
 				comment: {
 					type: 'Comment',
-					description: 'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
+					description:
+						'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
 					tags: [
 						{
 							type: 'Tag',
@@ -111,7 +112,13 @@ test('atCurlyDash', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -123,7 +130,8 @@ test('atCurlyDash', async t => {
 				type: 'Block',
 				comment: {
 					type: 'Comment',
-					description: 'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
+					description:
+						'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
 					tags: [
 						{
 							type: 'Tag',
@@ -188,7 +196,13 @@ test('atCurlyDash', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -244,7 +258,8 @@ test('backslashCurlyDash', async t => {
 				type: 'Block',
 				comment: {
 					type: 'Comment',
-					description: 'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
+					description:
+						'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
 					tags: [
 						{
 							type: 'Tag',
@@ -309,7 +324,13 @@ test('backslashCurlyDash', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -321,7 +342,8 @@ test('backslashCurlyDash', async t => {
 				type: 'Block',
 				comment: {
 					type: 'Comment',
-					description: 'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
+					description:
+						'Description.\n\n\n\n\n\n\n\n\n\n\nDescription.',
 					tags: [
 						{
 							type: 'Tag',
@@ -386,7 +408,13 @@ test('backslashCurlyDash', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -453,7 +481,13 @@ test('colon', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -488,7 +522,13 @@ test('colon', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -555,7 +595,13 @@ test('should select style by name', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'arg', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'arg',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {
@@ -590,7 +636,13 @@ test('should select style by name', async t => {
 							name: '',
 							description: '\n  Description.'
 						},
-						{ type: 'Tag', tag: 'tag', kind: '', name: '', description: '' }
+						{
+							type: 'Tag',
+							tag: 'tag',
+							kind: '',
+							name: '',
+							description: ''
+						}
 					]
 				},
 				code: {

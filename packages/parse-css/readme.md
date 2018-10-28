@@ -1,4 +1,4 @@
-# `@toga/parse-css`
+# @toga/parse-css
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
@@ -10,9 +10,7 @@ $ npm install --save @toga/parse-css
 
 ----
 
-© 2017 Shannon Moeller <me@shannonmoeller.com>
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com)
 
 [downloads-img]: http://img.shields.io/npm/dm/@toga/parse-css.svg?style=flat-square
 [npm-img]:       http://img.shields.io/npm/v/@toga/parse-css.svg?style=flat-square

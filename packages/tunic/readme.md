@@ -1,4 +1,4 @@
-# `@toga/tunic`
+# tunic
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
@@ -88,9 +88,7 @@ const cssDocAst = parse('/** ... */', grammar); // -> ast object
 
 ----
 
-© 2017 Shannon Moeller <me@shannonmoeller.com>
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com)
 
 [doctree]:       https://github.com/togajs/doctree
 

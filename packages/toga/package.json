@@ -23,5 +23,11 @@
     "dist"
   ],
   "dependencies": {
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

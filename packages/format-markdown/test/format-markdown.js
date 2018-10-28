@@ -16,8 +16,14 @@ const fixture = `
 	}
 `;
 
+test('should ignore files with no ast', { objectPrintDepth: 20 }, async t => {
+	const { docAst } = await formatMarkdown({});
+
+	t.equal(docAst, undefined);
+});
+
 test('should format descriptions', { objectPrintDepth: 20 }, async t => {
-	const { docAst } = formatMarkdown({
+	const { docAst } = await formatMarkdown({
 		docAst: parse(fixture)
 	});
 
@@ -49,7 +55,8 @@ test('should format descriptions', { objectPrintDepth: 20 }, async t => {
 				},
 				code: {
 					type: 'Code',
-					code: '\n\texport function log(foo) {\n\t\tconsole.log(foo);\n\t}\n'
+					code:
+						'\n\texport function log(foo) {\n\t\tconsole.log(foo);\n\t}\n'
 				}
 			}
 		]

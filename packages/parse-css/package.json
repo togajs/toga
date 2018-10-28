@@ -23,5 +23,11 @@
   ],
   "dependencies": {
     "@toga/tunic": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

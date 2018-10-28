@@ -20,5 +20,11 @@
   ],
   "dependencies": {
     "regx": "^1.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }

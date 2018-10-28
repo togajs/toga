@@ -1,8 +1,8 @@
-# `@toga/trifle`
+# trifle
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
-A source-agnostic [AST][ast] modifier. Accepts any plain old JavaScript object, visits any node with a `type` property, and lets you modify it [reducer style][redux].
+A source-agnostic [AST][ast] modifier. Accepts any plain old JavaScript object, visits any node with a `type` property, and lets you modify it reducer style.
 
 ## Install
 
@@ -54,25 +54,23 @@ const newAst = trifle(oldAst, (node, meta) => {
   console.log('visited', meta.path);
 
   switch (node.type) {
+    case 'Literal':
+      // delete it
+      return ;
+
     case 'Identifier':
-      // edit it
+      // change it
       return {
         ...node,
         name: 'baz'
       };
 
-    case 'Literal':
-      // delete it
-      return ;
-
     default:
-      // ignore it
+      // keep it
       return node;
   }
 });
 ```
-
-Look [familiar][redux]?
 
 ## API
 
@@ -85,13 +83,10 @@ Look [familiar][redux]?
 
 ----
 
-© 2017 Shannon Moeller <me@shannonmoeller.com> (shannonmoeller.com)
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com) (shannonmoeller.com)
 
 [ast]:           https://en.wikipedia.org/wiki/Abstract_syntax_tree
 [doctree]:       https://github.com/togajs/doctree
-[redux]:         http://redux.js.org/docs/basics/Reducers.html#handling-more-actions
 [traverse]:      https://github.com/substack/js-traverse#context
 
 [downloads-img]: http://img.shields.io/npm/dm/@toga/toga.svg?style=flat-square

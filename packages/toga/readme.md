@@ -1,4 +1,4 @@
-# `@toga/toga`
+# toga
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
@@ -112,9 +112,7 @@ toga
 
 ----
 
-© 2017 Shannon Moeller <me@shannonmoeller.com>
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com)
 
 [downloads-img]: http://img.shields.io/npm/dm/@toga/toga.svg?style=flat-square
 [npm-img]:       http://img.shields.io/npm/v/@toga/toga.svg?style=flat-square
